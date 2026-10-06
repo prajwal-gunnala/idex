@@ -85,9 +85,8 @@ environment-parameter libraries under **Training In-Session Tools**.
 
 ## Online demo (GitHub Pages)
 
-Every push to `main` publishes a browser-only demo to GitHub Pages
-(`.github/workflows/pages.yml`). It runs the same API as the server, but inside
-the page, with no server at all:
+A browser-only demo is published at **https://prajwal-gunnala.github.io/idex/**.
+It runs the same API as the server, but inside the page, with no server at all:
 
 - The database lives in that browser's `localStorage`. Each visitor and device
   gets its own copy, and nothing is shared between devices.
@@ -97,8 +96,16 @@ the page, with no server at all:
   open side by side in one browser and see each other's changes live.
 - The VR headset interface needs the real server and does not work in the demo.
 
-Build it locally with `npm run build:pages` (output in `_site/`) and serve that
-folder with any static web server.
+To publish changes, commit them and run:
+
+```bash
+npm run deploy:pages
+```
+
+This builds `_site/` and pushes it to the `gh-pages` branch, which GitHub serves
+(Settings → Pages → Branch: `gh-pages`). The site updates a minute or two later.
+`npm run build:pages` only builds `_site/`, so you can serve that folder locally
+with any static web server to try it out.
 
 ## VR headset interface
 
@@ -127,7 +134,7 @@ server/store.js      JSON database with safe writes
 server/defaults.js   starting data: plans, ships, modes, cues, injects, environment
 public/              pages: sign-in, dashboard, session runner, participant
 pages/               browser-only back end for the GitHub Pages demo
-scripts/             build-pages.js: builds the demo into _site/
+scripts/             build-pages.js / deploy-pages.js: build and publish the demo
 data/db.json         created on first start
 ```
 
