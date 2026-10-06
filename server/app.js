@@ -159,6 +159,13 @@ function createApi({ db, defaults, save, broadcast, isOnline, onlineCount, crypt
     }
     return units;
   }
+  /* The party that makes the first report, by its name for the incident type:
+     plan names read "Firefighting name / Damage Control name". */
+  function leadParty(s) {
+    const lead = planUnits(s.plan).find(u => u.mandatory);
+    const halves = (lead ? lead.title : 'Attack Party / Search Party').split(' / ');
+    return halves.length === 2 ? halves[s.incidentType === 'DC' ? 1 : 0] : halves[0];
+  }
   const unitOfUser = (s, userId) => {
     const k = Object.keys(s.assignments || {}).find(k => s.assignments[k] === userId);
     return k ? k.split('#')[0] : null;
@@ -218,7 +225,7 @@ function createApi({ db, defaults, save, broadcast, isOnline, onlineCount, crypt
     if (s.incidentType !== before.incidentType && type) log(s, user, 'setup', `Incident type: ${type.name}.`);
     if (s.compartmentId !== before.compartmentId && compt) log(s, user, 'setup', `Location: ${compt.name}.`);
     if (s.modeId !== before.modeId && mode) log(s, user, 'setup', `Drill mode: ${mode.name}.`);
-    if (s.severity !== before.severity && s.severity) log(s, user, 'assessment', `Attack Party report — ${s.severity.toUpperCase()} ${type ? type.noun : 'incident'}.`);
+    if (s.severity !== before.severity && s.severity) log(s, user, 'assessment', `${leadParty(s)} report — ${s.severity.toUpperCase()} ${type ? type.noun : 'incident'}.`);
     touch(s);
   }
 

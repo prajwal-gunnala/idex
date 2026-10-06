@@ -73,7 +73,7 @@ function waitingHTML() {
 
 function assignmentHTML() {
   const S = CURRENT, me = ME.user.id;
-  const units = planUnits(S.plan);
+  const units = planUnits(S.plan, S.incidentType);
   const slotKey = Object.keys(S.assignments).find(k => S.assignments[k] === me);
   const unit = units.find(u => u.key === slotKey.split('#')[0]);
   const slot = unit.slots[Number(slotKey.split('#')[1])];
@@ -200,7 +200,7 @@ function refresh() {
   await load();
   render();
   setupPlanOverlay(() => CFG, () => { const s = shipById((CURRENT && CURRENT.shipId) || ME.user.shipId) || CFG.ships[0]; return s && s.orgSet; },
-                   () => CURRENT && CURRENT.orgId || 'ALL');
+                   () => CURRENT && CURRENT.orgId || 'ALL', () => CURRENT && CURRENT.incidentType);
   API.listen({
     session: refresh,
     config: async () => { CFG = await API.get('/config'); refresh(); },

@@ -636,7 +636,7 @@ function drawLive() {
 function liveConsoleHTML() {
   const S = LIVE, ty = typeById(S.incidentType), sc = scenById(S.orgId), md = modeById(S.modeId);
   const applies = x => !S.incidentType || x.appliesTo === 'BOTH' || x.appliesTo === S.incidentType;
-  const units = planUnits(S.plan);
+  const units = planUnits(S.plan, S.incidentType);
   const unitOf = uid => { const k = Object.keys(S.assignments).find(k => S.assignments[k] === uid); return k ? units.find(u => u.key === k.split('#')[0]) : null; };
   const people = Object.keys(S.people).filter(uid => Object.values(S.assignments).includes(uid));
   const envState = (p, v) => (p.lowIsBad ? v <= p.danger : v >= p.danger) ? 'danger' : (p.lowIsBad ? v <= p.warn : v >= p.warn) ? 'warn' : 'ok';

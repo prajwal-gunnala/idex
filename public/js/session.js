@@ -105,21 +105,22 @@ const hhmmOf = iso => { const d = new Date(iso); return String(d.getHours()).pad
 
 /* ------------------------------------------------- unit (billet) model -- */
 /* Flattens the selected organisation into an ordered list of assignable
-   units. A slot is addressed by `${unit.key}#${index}`.                    */
+   units. A slot is addressed by `${unit.key}#${index}`. Titles use the
+   names for the chosen incident type (partyName in api.js).                */
 function buildUnits(o = org()) {
   if (!o) return [];
-  const units = [];
+  const units = [], name = t => partyName(t, state.incidentType);
   if (o.head && o.head.slots && o.head.slots.length) {
-    units.push({ key: 'head', kind: 'head', title: o.head.title, spec: o.head.spec || '',
+    units.push({ key: 'head', kind: 'head', title: name(o.head.title), spec: o.head.spec || '',
                  breakdown: '', slots: o.head.slots, parent: null });
   }
   o.groups.forEach(g => {
     if (g.slots && g.slots.length) {
-      units.push({ key: g.id, kind: 'group', title: g.title, spec: g.spec || '',
+      units.push({ key: g.id, kind: 'group', title: name(g.title), spec: g.spec || '',
                    breakdown: '', slots: g.slots, parent: null });
     }
     (g.parties || []).forEach(p => {
-      units.push({ key: g.id + '.' + p.id, kind: 'party', title: p.title, spec: p.spec || '',
+      units.push({ key: g.id + '.' + p.id, kind: 'party', title: name(p.title), spec: p.spec || '',
                    breakdown: p.breakdown || '', slots: p.slots, parent: g.id,
                    handwritten: !!p.handwritten, mandatory: !!p.mandatory });
     });
@@ -130,8 +131,10 @@ const slotKey  = (unit, i) => unit.key + '#' + i;
 const occupant = (unit, i) => person(state.assignments[slotKey(unit, i)]);
 const unitFill = unit => unit.slots.filter((_, i) => occupant(unit, i)).length;
 
-/* Attack Party + Attack 'BA' are the mandatory first response. On a minor
-   incident only they (and the OOD) are deployed; on a major one, everyone. */
+/* Attack Party + Attack 'BA' (Search Party + Repair Party in damage control)
+   are the mandatory first response. On a minor incident only they (and the
+   OOD) are deployed; on a major one, everyone.                             */
+const fr = () => firstResponse(org(), state.incidentType);
 const mandatoryReady = () => buildUnits().filter(u => u.mandatory).every(u => unitFill(u) === u.slots.length);
 const isDeployed     = u => state.severity !== 'minor' || u.kind === 'head' || u.mandatory;
 
@@ -209,6 +212,7 @@ function renderRail() {
   if (state.severity) html += item('Assessment', cap(state.severity) + ' ' + noun(), 'fire');
   else if (org()) { const st = strength(); html += item('Detailed', st.filled + ' / ' + st.required); }
   $('#rail-context').innerHTML = html;
+  $('#step-assess-label').textContent = fr().lead.replace(/ Party$/, '') + ' Report';
 }
 
 /* ============================================================ STEP 1 ===== */
@@ -256,8 +260,8 @@ function renderOrgs() {
     if (struct) {
       struct.groups.forEach(g => {
         billets += (g.slots || []).length;
-        (g.parties || []).forEach(p => { billets += p.slots.length; parties.push(p.title); });
-        if (!(g.parties || []).length) parties.push(g.title);
+        (g.parties || []).forEach(p => { billets += p.slots.length; parties.push(partyName(p.title, state.incidentType)); });
+        if (!(g.parties || []).length) parties.push(partyName(g.title, state.incidentType));
       });
     }
     return `
@@ -443,7 +447,7 @@ function renderBillets() {
       </table></div>
     </section>`;
 
-  (o.notes || []).forEach(n => { html += `<div class="note"><b>Note:</b> ${esc(n)}</div>`; });
+  (o.notes || []).forEach(n => { html += `<div class="note"><b>Note:</b> ${esc(planText(n, o, state.incidentType))}</div>`; });
   if (UNVERIFIED_TRADES.length) {
     html += `<div class="note"><b>Trade codes:</b> ${UNVERIFIED_TRADES.map(esc).join(', ')} are carried
       verbatim from the sheets — an administrator can set their full expansions in
@@ -545,7 +549,7 @@ function fillAttackSample() {
   if (!state.incident.assessedAt) state.incident.assessedAt = hhmmOf(new Date().toISOString());
   save();
   renderAssess();
-  toast('Test remarks filled in for the Attack parties.');
+  toast('Test remarks filled in for the ' + fr().short + '.');
 }
 
 function fillSample() {
@@ -567,8 +571,8 @@ function fillSample() {
   const safe = state.incidentType === 'DC' ? 'compartment pumped dry and declared safe' : 'compartment ventilated and declared safe';
   if (!inc.remarks || inc.remarks.startsWith('TEST DATA')) {
     inc.remarks = 'TEST DATA — sample entries to preview the report.\n' + (minor
-      ? `Minor ${n} reported in ${where} at ${fmtTime(inc.start)}. Attack Party and Attack 'BA' closed up; ${action} at ${fmtTime(hhmm(start + 10))}. ${cap(safe)} at ${fmtTime(inc.end)}.\nIncident closed by the Attack parties — other parties not required.`
-      : `${cap(n)} reported in ${where} at ${fmtTime(inc.start)}. Attack Party assessed a major ${n}; ${o ? o.abbr : 'emergency party'} closed up in full. ${cap(action)} at ${fmtTime(hhmm(start + 22))}${state.incidentType === 'DC' ? '' : ' with boundary cooling maintained throughout'}; ${safe} at ${fmtTime(inc.end)}.\nNo casualties. Re-entry only after gas-free check.`);
+      ? `Minor ${n} reported in ${where} at ${fmtTime(inc.start)}. ${fr().long.replace(' & ', ' and ')} closed up; ${action} at ${fmtTime(hhmm(start + 10))}. ${cap(safe)} at ${fmtTime(inc.end)}.\nIncident closed by the ${fr().short} — other parties not required.`
+      : `${cap(n)} reported in ${where} at ${fmtTime(inc.start)}. ${fr().lead} assessed a major ${n}; ${o ? o.abbr : 'emergency party'} closed up in full. ${cap(action)} at ${fmtTime(hhmm(start + 22))}${state.incidentType === 'DC' ? '' : ' with boundary cooling maintained throughout'}; ${safe} at ${fmtTime(inc.end)}.\nNo casualties. Re-entry only after gas-free check.`);
   }
 
   buildUnits().filter(u => u.kind !== 'head' && isDeployed(u)).forEach((u, k) => {
@@ -635,8 +639,11 @@ function renderVR() {
 /* Attack Party report: the first-response parties say what they found, and
    the incident is assessed minor (close it) or major (deploy the rest).    */
 function renderAssess() {
-  const s = ship(), c = compartment(), o = orgMeta(), n = noun();
+  const s = ship(), c = compartment(), o = orgMeta(), n = noun(), f = fr();
   if (!org() || !c) return;
+  $('#assess-title').textContent = f.lead + ' Report';
+  $('#assess-card-title').textContent = 'First Response — ' + f.long;
+  $('#assess-hint').textContent = 'The ' + f.long.replace(' & ', ' and ') + ' close up first. Record what they report from the scene.';
   $('#assess-sub').innerHTML =
     esc(s.klass + ' ' + s.name) + ' &nbsp;·&nbsp; <strong>' + esc(o.abbr) + '</strong>' +
     ' &nbsp;·&nbsp; ' + esc(incType().name) + ' &mdash; ' + esc(cap(n)) +
@@ -662,8 +669,8 @@ function renderAssess() {
 
   $('#sev-title').textContent = 'Assessment — Minor or Major ' + cap(n) + '?';
   $('#sev-grid').innerHTML = [
-    { id: 'minor', name: 'Minor ' + n, detail: "Dealt with by the Attack Party and Attack 'BA'. Close the incident with remarks." },
-    { id: 'major', name: 'Major ' + n, detail: 'Beyond the Attack parties. Other parties are deployed in support and their remarks go in the report.' }
+    { id: 'minor', name: 'Minor ' + n, detail: 'Dealt with by the ' + f.long.replace(' & ', ' and ') + '. Close the incident with remarks.' },
+    { id: 'major', name: 'Major ' + n, detail: 'Beyond the ' + f.short + '. Other parties are deployed in support and their remarks go in the report.' }
   ].map(v => `
     <button class="sev-card sev-${v.id} ${state.severity === v.id ? 'selected' : ''}" data-sev="${v.id}" type="button">
       <span class="sev-name">${esc(cap(v.name))}</span>
@@ -686,7 +693,7 @@ function renderAssess() {
 function renderDeploy() {
   const n = noun(), el = $('#sev-deploy');
   if (state.severity === 'minor') {
-    el.innerHTML = `<div class="note"><b>Minor ${esc(n)}:</b> only the Attack Party and Attack &lsquo;BA&rsquo; are recorded. Other parties are shown as not deployed.</div>`;
+    el.innerHTML = `<div class="note"><b>Minor ${esc(n)}:</b> only the ${esc(fr().long.replace(' & ', ' and '))} are recorded. Other parties are shown as not deployed.</div>`;
     return;
   }
   if (state.severity !== 'major') { el.innerHTML = ''; return; }
@@ -713,7 +720,7 @@ function renderTimings() {
   $('#timing-sub').innerHTML =
     esc(s.klass + ' ' + s.name) + ' &nbsp;·&nbsp; <strong>' + esc(o.abbr) + '</strong>' +
     ' &nbsp;·&nbsp; ' + esc(cap(state.severity || '') + ' ' + noun()) + ' in <strong style="color:var(--fire)">' + esc(c.name) + '</strong>';
-  $('#pt-title').textContent = minor ? "Attack Party & Attack 'BA' — Timings & Remarks" : 'Party Timings & Remarks';
+  $('#pt-title').textContent = minor ? fr().long + ' — Timings & Remarks' : 'Party Timings & Remarks';
   $('#remarks-title').textContent = minor ? 'Closing Remarks' : 'General Remarks';
 
   $('#in-date').value    = state.incident.date;
@@ -749,10 +756,11 @@ const updateDuration = () =>
   $('#out-duration').textContent = fmtDuration(durationOf($('#in-start').value, $('#in-end').value));
 
 /* ============================================================ STEP 9 ===== */
-/* Reads top to bottom: particulars -> first report (Attack Party / Search
-   and Attack 'BA') -> MINOR / MAJOR verdict -> deployed parties' remarks ->
-   closing remarks & sign-off. Annex A org chart, Annex B muster card.
-   A minor incident records only the Attack parties.                        */
+/* Reads top to bottom: particulars -> first report (Attack Party and Attack
+   'BA', or Search Party and Repair Party) -> MINOR / MAJOR verdict ->
+   deployed parties' remarks -> closing remarks & sign-off. Annex A org
+   chart, Annex B muster card. A minor incident records only the first
+   response parties.                                                        */
 function renderReport() {
   const s = ship(), c = compartment(), o = org(), om = orgMeta(), t = incType(), inc = state.incident;
   const units = buildUnits(), dur = durationOf(inc.start, inc.end), n = noun();
@@ -763,7 +771,8 @@ function renderReport() {
   const headUnit = units.find(u => u.kind === 'head');
   const oodName = inc.ood || (headUnit && occupant(headUnit, 0) ? occupant(headUnit, 0).name : '');
   $('#btn-close-session').classList.toggle('hidden', readOnly || state.status === 'closed');
-  const verdict = minor ? `Minor ${n} — closed by Attack parties` : `Major ${n} — other parties deployed`;
+  const f = fr();
+  const verdict = minor ? `Minor ${n} — closed by ${f.short}` : `Major ${n} — other parties deployed`;
 
   const summary = `
     <section class="report-sheet">
@@ -788,7 +797,7 @@ function renderReport() {
     </section>
 
     <section class="report-sheet">
-      <div class="rpt-title">First Report — Attack Party &amp; Attack &lsquo;BA&rsquo;${inc.assessedAt ? ' · ' + esc(fmtTime(inc.assessedAt)) : ''}</div>
+      <div class="rpt-title">First Report — ${esc(f.long)}${inc.assessedAt ? ' · ' + esc(fmtTime(inc.assessedAt)) : ''}</div>
       <div class="ar-report">
         ${units.filter(u => u.mandatory).map(u => partyRemarkRow(u, inc)).join('')}
       </div>
@@ -798,14 +807,14 @@ function renderReport() {
       <span class="verdict-label">Assessment</span>
       <span class="verdict-big">${esc((minor ? 'Minor ' : 'Major ') + n)}</span>
       <span class="verdict-sub">${minor
-        ? "Dealt with by the Attack Party and Attack &lsquo;BA&rsquo; &mdash; no other parties deployed."
-        : 'Beyond the Attack parties &mdash; other parties deployed in support.'}</span>
+        ? `Dealt with by the ${esc(f.long.replace(' & ', ' and '))} &mdash; no other parties deployed.`
+        : `Beyond the ${esc(f.short)} &mdash; other parties deployed in support.`}</span>
     </section>
 
     <section class="report-sheet">
       <div class="rpt-title">Deployed Parties — Remarks</div>
       ${minor
-        ? `<div class="rpt-remarks rpt-nil">No other parties deployed &mdash; incident closed by the Attack parties.</div>`
+        ? `<div class="rpt-remarks rpt-nil">No other parties deployed &mdash; incident closed by the ${esc(f.short)}.</div>`
         : `<div class="ar-report">${units.filter(u => u.kind !== 'head' && !u.mandatory).map(u => partyRemarkRow(u, inc)).join('')}</div>`}
     </section>
 
@@ -823,7 +832,7 @@ function renderReport() {
     <section class="report-sheet rpt-org">
       <div class="rpt-title">Annex A — Organisation as Deployed</div>
       ${detailedTreeHTML(o, units)}
-      ${(o.notes || []).map(x => `<div class="note" style="margin-top:16px"><b>Note:</b> ${esc(x)}</div>`).join('')}
+      ${(o.notes || []).map(x => `<div class="note" style="margin-top:16px"><b>Note:</b> ${esc(planText(x, o, state.incidentType))}</div>`).join('')}
     </section>`;
 
   let rows = '';
@@ -905,11 +914,11 @@ function detailedTreeHTML(o, units) {
     const gu = units.find(u => u.key === g.id);
     const kids = units.filter(u => u.parent === g.id).map(u => node(u));
     return gu ? node(gu, { group: true, children: kids })
-              : { t: g.title, s: g.spec ? [g.spec] : [], group: true, children: kids };
+              : { t: partyName(g.title, state.incidentType), s: g.spec ? [g.spec] : [], group: true, children: kids };
   });
   const root = head ? node(head, { children }) : { bare: true, children };
   return `
-    ${head ? '' : `<div class="pt-sheet-title pt-small">${esc(o.head.title)}</div>`}
+    ${head ? '' : `<div class="pt-sheet-title pt-small">${esc(partyName(o.head.title, state.incidentType))}</div>`}
     <div class="pt-tree ${head ? '' : 'pt-bare'}"><ul><li>${planNode(root)}</li></ul></div>`;
 }
 
@@ -972,7 +981,7 @@ async function boot() {
   renderSessionChip();
   document.title = 'Session ' + state.code + ' — Emergency Party Board';
 
-  setupPlanOverlay(() => CFG, () => (ship() || {}).orgSet, () => state.orgId || 'ALL');
+  setupPlanOverlay(() => CFG, () => (ship() || {}).orgSet, () => state.orgId || 'ALL', () => state.incidentType);
 
   $$('#stepper .step').forEach(b => b.addEventListener('click', () => goto(Number(b.dataset.step))));
   $$('[data-goto]').forEach(b => b.addEventListener('click', () => goto(Number(b.dataset.goto))));
@@ -983,7 +992,7 @@ async function boot() {
     toast('All billets cleared.');
   });
   $('#btn-to-assess').addEventListener('click', () => {
-    if (!mandatoryReady()) { toast("Attack Party and Attack 'BA' must be fully detailed first."); return; }
+    if (!mandatoryReady()) { toast(fr().long.replace(' & ', ' and ') + ' must be fully detailed first.'); return; }
     goto(STEP_VR);
   });
   $('#vr-mode').addEventListener('change', ev => { state.modeId = ev.target.value; save(); renderVR(); });

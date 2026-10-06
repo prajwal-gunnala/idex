@@ -47,7 +47,7 @@
     <button class="step" data-step="4"><i>4</i><span>Location</span></button>
     <button class="step" data-step="5"><i>5</i><span>Assign</span></button>
     <button class="step" data-step="6"><i>6</i><span>VR Scenario</span></button>
-    <button class="step" data-step="7"><i>7</i><span>Attack Report</span></button>
+    <button class="step" data-step="7"><i>7</i><span id="step-assess-label">Attack Report</span></button>
     <button class="step" data-step="8"><i>8</i><span>Timings</span></button>
     <button class="step" data-step="9"><i>9</i><span>Report</span></button>
   </div>
@@ -179,7 +179,7 @@
 <main class="panel wide hidden" id="step-7">
   <div class="panel-head row">
     <div>
-      <h2>Attack Party Report</h2>
+      <h2 id="assess-title">Attack Party Report</h2>
       <p id="assess-sub"></p>
     </div>
     <div class="head-actions">
@@ -189,8 +189,8 @@
   </div>
 
   <section class="card">
-    <h3 class="card-title">First Response &mdash; Attack Party &amp; Attack &lsquo;BA&rsquo;</h3>
-    <p class="hint">The Attack Party and Attack &lsquo;BA&rsquo; close up first. Record what they report from the scene.</p>
+    <h3 class="card-title" id="assess-card-title">First Response &mdash; Attack Party &amp; Attack &lsquo;BA&rsquo;</h3>
+    <p class="hint" id="assess-hint">The Attack Party and Attack &lsquo;BA&rsquo; close up first. Record what they report from the scene.</p>
     <div class="attack-reports" id="attack-reports"></div>
   </section>
 

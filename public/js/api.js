@@ -120,21 +120,58 @@ const STATUS_LABEL = { setup: 'Setting up', live: 'Live', paused: 'Paused', clos
 const statusPill = st => `<span class="pill pill-${st}">${esc(STATUS_LABEL[st] || st)}</span>`;
 
 /* ------------------------------------------------------------------ plan trees */
-/* Units of a plan, flattened; a billet is addressed `${unit.key}#${index}`. */
-function planUnits(plan) {
+/* Plan names are written "Firefighting name / Damage Control name", e.g.
+   "Attack Party / Search Party". Once a session's incident type is chosen
+   only its half is shown; before that (and in the plan editor) both are. */
+function partyName(title, incidentType) {
+  const halves = String(title == null ? '' : title).split(' / ');
+  if (halves.length !== 2 || !incidentType) return title;
+  return incidentType === 'DC' ? halves[1] : halves[0];
+}
+
+/* Free text in a plan (its notes) names parties by their firefighting names;
+   for damage control those become the damage-control names. */
+function planText(text, plan, incidentType) {
+  if (incidentType !== 'DC' || !plan) return text;
+  const to = {};
+  for (const g of plan.groups || []) for (const x of [g, ...(g.parties || [])]) {
+    const halves = String(x.title).split(' / ');
+    if (halves.length === 2) to[halves[0]] = halves[1];
+  }
+  const names = Object.keys(to).sort((a, b) => b.length - a.length);
+  if (!names.length) return text;
+  const re = new RegExp(names.map(n => n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'), 'g');
+  return String(text).replace(re, m => to[m]);
+}
+
+/* Units of a plan, flattened; a billet is addressed `${unit.key}#${index}`.
+   With an incident type, titles are that type's names (see partyName). */
+function planUnits(plan, incidentType) {
   if (!plan) return [];
-  const units = [];
+  const units = [], name = t => partyName(t, incidentType);
   if (plan.head && (plan.head.slots || []).length) {
-    units.push({ key: 'head', kind: 'head', title: plan.head.title, spec: plan.head.spec || '', breakdown: '', slots: plan.head.slots, parent: null });
+    units.push({ key: 'head', kind: 'head', title: name(plan.head.title), spec: plan.head.spec || '', breakdown: '', slots: plan.head.slots, parent: null });
   }
   (plan.groups || []).forEach(g => {
-    if ((g.slots || []).length) units.push({ key: g.id, kind: 'group', title: g.title, spec: g.spec || '', breakdown: '', slots: g.slots, parent: null });
+    if ((g.slots || []).length) units.push({ key: g.id, kind: 'group', title: name(g.title), spec: g.spec || '', breakdown: '', slots: g.slots, parent: null });
     (g.parties || []).forEach(p => units.push({
-      key: g.id + '.' + p.id, kind: 'party', title: p.title, spec: p.spec || '', breakdown: p.breakdown || '',
+      key: g.id + '.' + p.id, kind: 'party', title: name(p.title), spec: p.spec || '', breakdown: p.breakdown || '',
       slots: p.slots, parent: g.id, handwritten: !!p.handwritten, mandatory: !!p.mandatory
     }));
   });
   return units;
+}
+
+/* The first-response (required) parties by name, for an incident type:
+     long   "Attack Party & Attack 'BA'"   /  "Search Party & Repair Party"
+     short  "Attack parties"               /  "Search & Repair parties"
+     lead   "Attack Party"                 /  "Search Party"   (makes the first report) */
+function firstResponse(plan, incidentType) {
+  const titles = planUnits(plan, incidentType).filter(u => u.mandatory).map(u => u.title);
+  if (!titles.length) titles.push(partyName("Attack Party / Search Party", incidentType));
+  const words = [];
+  titles.map(t => t.replace(/ Party$/, '')).forEach(w => { if (!words.some(x => w.startsWith(x))) words.push(w); });
+  return { long: titles.join(' & '), short: words.join(' & ') + ' parties', lead: titles[0] };
 }
 
 /* One box of a drawn tree (and its children). */
@@ -155,34 +192,36 @@ function planNode(n) {
 }
 
 /* The paper-sheet drawing of a plan: title, spec and breakdown lines. */
-function planToTree(plan) {
+function planToTree(plan, incidentType) {
+  const name = t => partyName(t, incidentType);
   const lines = (spec, breakdown) => [
     ...(spec ? String(spec).split(' · ').map((x, i, a) => a.length > 1 ? x : '(' + x + ')') : []),
     ...(breakdown ? String(breakdown).split(',').map(x => x.trim()).filter(Boolean) : [])
   ];
   const groups = (plan.groups || []).map(g => ({
-    t: g.title, s: lines(g.spec), group: true,
-    children: (g.parties || []).map(p => ({ t: p.title, s: lines(p.spec, p.breakdown), hand: !!p.handwritten, req: !!p.mandatory }))
+    t: name(g.title), s: lines(g.spec), group: true,
+    children: (g.parties || []).map(p => ({ t: name(p.title), s: lines(p.spec, p.breakdown), hand: !!p.handwritten, req: !!p.mandatory }))
   }));
-  return (plan.head.slots || []).length ? { t: plan.head.title, s: plan.head.spec ? [plan.head.spec] : [], children: groups }
+  return (plan.head.slots || []).length ? { t: name(plan.head.title), s: plan.head.spec ? [plan.head.spec] : [], children: groups }
                                         : { bare: true, children: groups };
 }
 
-function planSheetHTML(plan, scenario, orgSet) {
-  const tree = planToTree(plan);
+function planSheetHTML(plan, scenario, orgSet, incidentType) {
+  const tree = planToTree(plan, incidentType);
   return `
     <section class="pt-sheet">
       <div class="pt-heading">${esc(orgSet.replace(/_/g, ' / '))}</div>
       <div class="pt-sheet-title">${esc(scenario ? scenario.name.toUpperCase() + ' (' + scenario.abbr + ')' : plan.head.title)}</div>
       <div class="pt-tree ${tree.bare ? 'pt-bare' : ''}"><ul><li>${planNode(tree)}</li></ul></div>
       ${(plan.notes || []).length ? `<div class="pt-notes"><span class="pt-note-label">Note :-</span>
-        <div>${plan.notes.map((n, i) => `<p>${plan.notes.length > 1 ? '(' + String.fromCharCode(97 + i) + ')  ' : ''}${esc(n)}</p>`).join('')}</div></div>` : ''}
+        <div>${plan.notes.map((n, i) => `<p>${plan.notes.length > 1 ? '(' + String.fromCharCode(97 + i) + ')  ' : ''}${esc(planText(n, plan, incidentType))}</p>`).join('')}</div></div>` : ''}
       <p class="pt-version">Plan version ${esc(plan.version || 1)} · updated ${esc(fmtDateTime(plan.updatedAt))} by ${esc(plan.updatedBy || '—')}</p>
     </section>`;
 }
 
 /* ------------------------------------------------------------------ Plan overlay */
-/* Needs #plan-overlay markup (see PLAN_OVERLAY_HTML) and the config. */
+/* Needs #plan-overlay markup (see PLAN_OVERLAY_HTML) and the config.
+   getIncidentType (optional): inside a session, names follow its type. */
 const PLAN_OVERLAY_HTML = `
 <div class="plan-overlay hidden no-print" id="plan-overlay">
   <div class="plan-sheet" role="dialog" aria-modal="true" aria-labelledby="plan-title">
@@ -195,11 +234,13 @@ const PLAN_OVERLAY_HTML = `
   </div>
 </div>`;
 
-function setupPlanOverlay(getCfg, getOrgSet, getDefault) {
+function setupPlanOverlay(getCfg, getOrgSet, getDefault, getIncidentType = () => null) {
   document.body.insertAdjacentHTML('beforeend', PLAN_OVERLAY_HTML);
   const render = filter => {
-    const cfg = getCfg(), orgSet = getOrgSet() || 'OPV_PCV';
+    const cfg = getCfg(), orgSet = getOrgSet() || 'OPV_PCV', type = getIncidentType();
     const scen = cfg.scenarios.filter(o => cfg.plans[orgSet + '::' + o.id]);
+    const fr = type && scen.length ? firstResponse(cfg.plans[orgSet + '::' + scen[0].id], type)
+                                   : { long: "Attack Party + Attack \u2018BA\u2019", short: 'Attack parties', lead: 'Attack Party' };
     $('#plan-title').textContent = 'Plan — ' + orgSet.replace(/_/g, ' / ');
     $('#plan-tabs').innerHTML = [`<button type="button" data-plan="ALL">All scenarios</button>`]
       .concat(scen.map(o => `<button type="button" data-plan="${esc(o.id)}">${esc(o.scenario)} &mdash; ${esc(o.abbr)}</button>`)).join('');
@@ -220,20 +261,20 @@ function setupPlanOverlay(getCfg, getOrgSet, getDefault) {
           ${arrow}
           <div class="fl-box fl-wide">Location of fire / damage reported</div>
           ${arrow}
-          <div class="fl-box fl-wide fl-strong"><b>Attack Party + Attack &lsquo;BA&rsquo;</b>close up first &mdash; required</div>
+          <div class="fl-box fl-wide fl-strong"><b>${esc(fr.long)}</b>close up first &mdash; required</div>
           ${arrow}
           <div class="fl-box fl-wide"><b>VR scenario</b>session runs in the headsets</div>
           ${arrow}
-          <div class="fl-box fl-wide"><b>Attack Party reports</b>Minor or Major?</div>
+          <div class="fl-box fl-wide"><b>${esc(fr.lead)} reports</b>Minor or Major?</div>
           <div class="fl-split" aria-hidden="true"></div>
           <div class="fl-row fl-branches">
-            <div class="fl-col"><div class="fl-box"><b>MINOR</b>Attack parties deal with it.<br>Close with remarks.</div>${arrow}<div class="fl-box">Report &mdash; Attack parties only</div></div>
+            <div class="fl-col"><div class="fl-box"><b>MINOR</b>${esc(cap(fr.short))} deal with it.<br>Close with remarks.</div>${arrow}<div class="fl-box">Report &mdash; ${esc(fr.short)} only</div></div>
             <div class="fl-col"><div class="fl-box"><b>MAJOR</b>Other parties deployed in support.</div>${arrow}<div class="fl-box">Report &mdash; all parties &amp; their remarks</div></div>
           </div>
         </div>
       </div>`;
     const sheets = scen.filter(o => filter === 'ALL' || o.id === filter)
-      .map(o => planSheetHTML(cfg.plans[orgSet + '::' + o.id], o, orgSet)).join('');
+      .map(o => planSheetHTML(cfg.plans[orgSet + '::' + o.id], o, orgSet, type)).join('');
     $('#plan-body').innerHTML = logic + sheets;
     $$('#plan-body [data-jump]').forEach(n => n.onclick = () => render(n.dataset.jump));
   };
