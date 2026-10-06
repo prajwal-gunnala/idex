@@ -4,7 +4,8 @@
   "private": true,
   "description": "HEP / SSEP firefighting & damage-control training board with VR session control — Indian Coast Guard",
   "scripts": {
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "build:pages": "node scripts/build-pages.js"
   },
   "engines": {
     "node": ">=18"

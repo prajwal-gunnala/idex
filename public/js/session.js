@@ -602,7 +602,7 @@ function renderVR() {
     (st === 'setup' ? '<button class="btn primary" data-vr="live" type="button">&#9654; Start VR session</button>' : '') +
     (st === 'live' ? '<button class="btn" data-vr="paused" type="button">&#10074;&#10074; Pause</button>' : '') +
     (st === 'paused' ? '<button class="btn primary" data-vr="live" type="button">&#9654; Resume</button>' : '') +
-    (ME.user.role === 'admin' && st !== 'closed' ? `<a class="btn" href="/dashboard.html#live/${state.id}">Moderator tools</a>` : '');
+    (ME.user.role === 'admin' && st !== 'closed' ? `<a class="btn" href="dashboard.html#live/${state.id}">Moderator tools</a>` : '');
   $$('#vr-controls [data-vr]').forEach(b => b.onclick = async () => {
     await flush();
     const r = await attempt(() => API.post('/sessions/' + state.id + '/status', { status: b.dataset.vr }),
@@ -963,7 +963,7 @@ async function boot() {
   startClock();
   ME = await requireAuth(['admin', 'officer']);
   const id = new URLSearchParams(location.search).get('id');
-  if (!id) { location.href = '/dashboard.html#sessions'; return; }
+  if (!id) { location.href = 'dashboard.html#sessions'; return; }
   useConfig(await API.get('/config'));
   const doc = (await API.get('/sessions/' + id)).session;
   applyServer(doc);
@@ -1024,7 +1024,7 @@ async function boot() {
   API.listen({
     session: async d => {
       if (d.id !== state.id) return;
-      if (d.deleted) { toast('This session was deleted.', true); setTimeout(() => location.href = '/dashboard.html#sessions', 1500); return; }
+      if (d.deleted) { toast('This session was deleted.', true); setTimeout(() => location.href = 'dashboard.html#sessions', 1500); return; }
       if (synced && d.rev <= synced.rev) return;
       applyServer((await API.get('/sessions/' + state.id)).session);
       if (state.status === 'closed') readOnly = true;

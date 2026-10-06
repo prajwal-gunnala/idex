@@ -143,7 +143,7 @@ async function renderOverview() {
 
 async function createSession(shipId) {
   const r = await attempt(() => API.post('/sessions', shipId ? { shipId } : {}));
-  location.href = '/session.html?id=' + r.session.id;
+  location.href = 'session.html?id=' + r.session.id;
 }
 
 /* ================================================================ USERS & ROLES */
@@ -563,7 +563,7 @@ function sessionTable(list, compact) {
         <td>${statusPill(s.status)}</td>
         <td class="num nowrap">${s.assigned}${s.completed ? ` <span class="muted">(${s.completed} done)</span>` : ''}</td>
         <td class="num nowrap">
-          <a class="btn sm ${canRun && s.status !== 'closed' ? 'primary' : ''}" href="/session.html?id=${s.id}">${s.status === 'closed' ? 'Report' : canRun ? 'Open' : 'View'}</a>
+          <a class="btn sm ${canRun && s.status !== 'closed' ? 'primary' : ''}" href="session.html?id=${s.id}">${s.status === 'closed' ? 'Report' : canRun ? 'Open' : 'View'}</a>
           ${isAdmin() && s.status !== 'closed' ? `<a class="btn sm" href="#live/${s.id}">Live tools</a>` : ''}
           ${isAdmin() ? '<button class="btn sm btn-danger" type="button" data-sdel>Delete</button>' : ''}
         </td></tr>`;
@@ -656,7 +656,7 @@ function liveConsoleHTML() {
         ${S.status === 'live' ? '<button class="btn" data-st="paused" type="button">❚❚ Pause</button>' : ''}
         ${S.status === 'paused' ? '<button class="btn primary" data-st="live" type="button">▶ Resume</button>' : ''}
         <button class="btn btn-danger" data-st="closed" type="button">■ End session</button>
-        <a class="btn" href="/session.html?id=${S.id}">Open runner</a>
+        <a class="btn" href="session.html?id=${S.id}">Open runner</a>
       </div>
     </section>
 

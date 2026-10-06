@@ -7,11 +7,13 @@
 const $  = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
 const TOKEN_KEY = 'epb-token';
+/* The GitHub Pages demo signs in per tab, so several roles can be open side by side. */
+const tokenStore = () => window.EPBLocal ? sessionStorage : localStorage;
 
 /* ------------------------------------------------------------------ server */
 const API = {
-  get token() { try { return localStorage.getItem(TOKEN_KEY); } catch (e) { return null; } },
-  set token(t) { try { t ? localStorage.setItem(TOKEN_KEY, t) : localStorage.removeItem(TOKEN_KEY); } catch (e) {} },
+  get token() { try { return tokenStore().getItem(TOKEN_KEY); } catch (e) { return null; } },
+  set token(t) { try { t ? tokenStore().setItem(TOKEN_KEY, t) : tokenStore().removeItem(TOKEN_KEY); } catch (e) {} },
 
   async call(method, path, body) {
     const res = await fetch('/api' + path, {
@@ -21,7 +23,7 @@ const API = {
     });
     let data = {};
     try { data = await res.json(); } catch (e) {}
-    if (res.status === 401 && !path.startsWith('/auth/') && path !== '/setup') { this.token = null; location.href = '/'; }
+    if (res.status === 401 && !path.startsWith('/auth/') && path !== '/setup') { this.token = null; location.href = './'; }
     if (!res.ok) throw new Error(data.error || 'Request failed (' + res.status + ').');
     return data;
   },
@@ -50,12 +52,12 @@ function setLiveDot(ok) {
 }
 
 /* ------------------------------------------------------------------ sign-in */
-const homeFor = role => role === 'user' ? '/user.html' : '/dashboard.html';
+const homeFor = role => role === 'user' ? 'user.html' : 'dashboard.html';
 const ROLE_NAMES = { admin: 'Administrator', officer: 'Officer', user: 'Participant' };
 
 /* Loads the signed-in user; sends anyone else to the right page. */
 async function requireAuth(roles) {
-  if (!API.token) { location.href = '/'; throw new Error('signed out'); }
+  if (!API.token) { location.href = './'; throw new Error('signed out'); }
   const me = await API.get('/me');
   if (roles && !roles.includes(me.user.role)) { location.href = homeFor(me.user.role); throw new Error('wrong page'); }
   renderUserChip(me.user);
@@ -66,7 +68,7 @@ function renderUserChip(user) {
   if (el) el.innerHTML = `<span class="uc-name">${esc(user.rank ? user.rank + ' ' + user.name : user.name)}</span>
     <span class="role-badge role-${user.role}">${esc(ROLE_NAMES[user.role])}</span>`;
   const out = $('#btn-logout');
-  if (out) out.onclick = async () => { try { await API.post('/auth/logout'); } catch (e) {} API.token = null; location.href = '/'; };
+  if (out) out.onclick = async () => { try { await API.post('/auth/logout'); } catch (e) {} API.token = null; location.href = './'; };
 }
 
 /* ------------------------------------------------------------------ helpers */

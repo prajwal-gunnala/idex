@@ -83,6 +83,23 @@ sessions from Training Session Management.
 Also: **Training / Drill Modes**, **Sensory Cues & Feedback**, and the inject and
 environment-parameter libraries under **Training In-Session Tools**.
 
+## Online demo (GitHub Pages)
+
+Every push to `main` publishes a browser-only demo to GitHub Pages
+(`.github/workflows/pages.yml`). It runs the same API as the server, but inside
+the page, with no server at all:
+
+- The database lives in that browser's `localStorage`. Each visitor and device
+  gets its own copy, and nothing is shared between devices.
+- A first visit builds the demo accounts and the three demo sessions. *Reset demo*
+  in the strip at the top starts over.
+- Each tab signs in separately, so the admin, an officer and a participant can be
+  open side by side in one browser and see each other's changes live.
+- The VR headset interface needs the real server and does not work in the demo.
+
+Build it locally with `npm run build:pages` (output in `_site/`) and serve that
+folder with any static web server.
+
 ## VR headset interface
 
 Each session has a **session code** and a **VR key**, both shown on the VR Scenario step.
@@ -104,10 +121,13 @@ Adds the event to the session timeline (Annex C of the report).
 ## Layout
 
 ```
-server/server.js     web server + API (Node built-ins only)
+server/server.js     web server, live updates, passwords (Node built-ins only)
+server/app.js        the API itself, shared with the GitHub Pages demo
 server/store.js      JSON database with safe writes
 server/defaults.js   starting data: plans, ships, modes, cues, injects, environment
 public/              pages: sign-in, dashboard, session runner, participant
+pages/               browser-only back end for the GitHub Pages demo
+scripts/             build-pages.js: builds the demo into _site/
 data/db.json         created on first start
 ```
 

@@ -5,19 +5,26 @@
      node server/demo-sessions.js            (server must be running)
      HEP_URL=http://host:8080 node server/demo-sessions.js
 
+   The GitHub Pages build also loads this file in the browser and calls
+   EPBDemo.build() to fill a new visitor's database (see pages/local-server.js).
+
    Creates three sessions:
      1. HEP  · OPV · Firefighting   · Galley      · MINOR · closed
      2. SSEP · PCV · Damage Control · Engine Room · MAJOR · closed
      3. HEP  · OPV · Firefighting   · Engine Room · MAJOR · live (left running)
    Uses the demo accounts (created if missing); every password is 123456.
    ========================================================================== */
+(function () {
 'use strict';
 
-const BASE = process.env.HEP_URL || 'http://localhost:8080';
-const PASSWORD = process.env.HEP_DEFAULT_PASSWORD || '123456';
+const inNode = typeof module === 'object' && !!module.exports;
+const env = inNode ? process.env : {};
+let BASE = env.HEP_URL || 'http://localhost:8080';
+let doFetch = (...a) => fetch(...a);
+const PASSWORD = env.HEP_DEFAULT_PASSWORD || '123456';
 
 async function call(token, method, path, body, headers = {}) {
-  const res = await fetch(BASE + '/api' + path, {
+  const res = await doFetch(BASE + '/api' + path, {
     method,
     headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: 'Bearer ' + token } : {}), ...headers },
     body: body === undefined ? undefined : JSON.stringify(body)
@@ -148,7 +155,11 @@ async function vr(S, events) {
 
 const ctx = {};
 
-(async () => {
+/* opts: { base, fetch, log } — the browser build passes its own fetch. */
+async function build(opts = {}) {
+  if ('base' in opts) BASE = opts.base;
+  if (opts.fetch) doFetch = opts.fetch;
+  const console = { log: opts.log || (m => globalThis.console.log(m)) };
   const A = await as('admin');
   await call(A, 'POST', '/users/demo');
   ctx.users = (await call(A, 'GET', '/users')).users;
@@ -213,4 +224,12 @@ const ctx = {};
     await call(O, 'PATCH', '/sessions/' + S.id, { severity: 'major', step: 7, incident: { assessedAt: minsAgo(4), kind: 'Exercise' } });
     console.log('3. ' + S.code + '  HEP · OPV · Firefighting · Engine Room · MAJOR · LIVE (still running)');
   }
-})().catch(e => { console.error('Failed: ' + e.message); process.exit(1); });
+}
+
+if (inNode) {
+  module.exports = { build };
+  if (require.main === module) build().catch(e => { console.error('Failed: ' + e.message); process.exit(1); });
+} else {
+  self.EPBDemo = { build };
+}
+})();
