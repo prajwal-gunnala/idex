@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Session — Emergency Party Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="assets/icg-logo.png">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="app-header">
+  <div class="wrap header-inner">
+    <img src="assets/icg-logo.png" alt="भारतीय तटरक्षक — Indian Coast Guard" class="brand-logo">
+    <span class="header-divider" aria-hidden="true"></span>
+    <div class="header-title">
+      <span class="header-app">Emergency Party Board</span>
+      <span class="header-app-sub">HEP &middot; SSEP &mdash; Firefighting &amp; Damage Control</span>
+    </div>
+    <div class="header-actions no-print">
+      <span id="clock" class="clock"></span>
+      <span class="sess-chip" id="sess-chip"></span>
+      <span class="live-dot" id="live-dot" title="Live"></span>
+      <span class="user-chip" id="user-chip"></span>
+      <button class="plan-btn" id="btn-plan" type="button" title="All scenarios &mdash; reference trees">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="2" width="6" height="5" rx="1"/><rect x="2" y="17" width="6" height="5" rx="1"/><rect x="16" y="17" width="6" height="5" rx="1"/>
+          <path d="M12 7v5M5 17v-5h14v5"/></svg>
+        <span>Plan</span>
+      </button>
+      <a class="hdr-btn" href="/dashboard.html#sessions">Dashboard</a>
+      <button class="hdr-btn" id="btn-logout" type="button">Sign out</button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PROGRESS STEPPER ============ -->
+<nav class="stepbar no-print" aria-label="Progress">
+  <div class="wrap stepbar-inner" id="stepper">
+    <button class="step" data-step="1"><i>1</i><span>Ship</span></button>
+    <button class="step" data-step="2"><i>2</i><span>Scenario</span></button>
+    <button class="step" data-step="3"><i>3</i><span>FF &amp; DC</span></button>
+    <button class="step" data-step="4"><i>4</i><span>Location</span></button>
+    <button class="step" data-step="5"><i>5</i><span>Assign</span></button>
+    <button class="step" data-step="6"><i>6</i><span>VR Scenario</span></button>
+    <button class="step" data-step="7"><i>7</i><span>Attack Report</span></button>
+    <button class="step" data-step="8"><i>8</i><span>Timings</span></button>
+    <button class="step" data-step="9"><i>9</i><span>Report</span></button>
+  </div>
+</nav>
+
+<!-- ============ INCIDENT SUMMARY ============ -->
+<div class="summary no-print">
+  <div class="wrap summary-inner" id="rail-context"></div>
+</div>
+
+<div class="ro-banner hidden no-print" id="ro-banner"></div>
+
+<!-- ============ STEP 1 — SHIP ============ -->
+<main class="panel" id="step-1">
+  <div class="panel-head">
+    <h2>Select Ship</h2>
+    <p>Four units on strength. Emergency scenarios are worked out for <strong>OPV Vigraha</strong>; the remaining units are listed for selection.</p>
+  </div>
+  <div class="ship-grid" id="ship-grid"></div>
+</main>
+
+<!-- ============ STEP 2 — SCENARIO ============ -->
+<main class="panel hidden" id="step-2">
+  <div class="panel-head">
+    <h2>Select Scenario</h2>
+    <p id="org-sub">The ship&rsquo;s situation decides which emergency party closes up and how it is organised.</p>
+  </div>
+  <div class="org-grid" id="org-grid"></div>
+  <div class="panel-foot">
+    <button class="btn ghost" data-goto="1" type="button">&larr; Back to ships</button>
+  </div>
+</main>
+
+<!-- ============ STEP 3 — FIREFIGHTING & DAMAGE CONTROL ============ -->
+<main class="panel hidden" id="step-3">
+  <div class="panel-head">
+    <h2>Firefighting &amp; Damage Control</h2>
+    <p id="type-sub">Select the type of incident.</p>
+  </div>
+  <div class="type-grid" id="type-grid"></div>
+  <div class="panel-foot">
+    <button class="btn ghost" data-goto="2" type="button">&larr; Back to scenario</button>
+  </div>
+</main>
+
+<!-- ============ STEP 4 — LOCATION ============ -->
+<main class="panel hidden" id="step-4">
+  <div class="panel-head">
+    <h2 id="loc-title">Location of Fire</h2>
+    <p id="scenario-sub">Select the compartment in which the incident is reported.</p>
+  </div>
+  <div class="compartment-grid" id="compartment-grid"></div>
+  <div class="panel-foot">
+    <button class="btn ghost" data-goto="3" type="button">&larr; Back to firefighting &amp; damage control</button>
+  </div>
+</main>
+
+<!-- ============ STEP 5 — ASSIGN ============ -->
+<main class="panel wide hidden" id="step-5">
+  <div class="panel-head row">
+    <div>
+      <h2>Assign Hands to Parties</h2>
+      <p id="assign-sub"></p>
+    </div>
+    <div class="head-actions">
+      <button class="btn ghost" id="btn-autofill" type="button">Auto-fill by trade</button>
+      <button class="btn ghost" id="btn-clear" type="button">Clear all</button>
+      <button class="btn primary" id="btn-to-assess" type="button">VR Scenario &rarr;</button>
+    </div>
+  </div>
+
+  <section class="card at-card" id="assign-tree"></section>
+
+  <div class="assign-layout">
+    <aside class="pool">
+      <div class="pool-head">
+        <h3>Ship's Company</h3>
+      </div>
+      <div class="pool-stats" id="pool-stats"></div>
+      <p class="hint">Highlighted hands are still available. Pick them from the dropdown in each box of the tree.</p>
+      <div class="pool-list" id="pool-list"></div>
+      <div class="pool-foot">
+        <span class="muted small">Hands register on the sign-in page; administrators manage accounts in Users &amp; Roles.</span>
+      </div>
+    </aside>
+    <section class="billets" id="billets"></section>
+  </div>
+
+  <div class="panel-foot">
+    <button class="btn ghost" data-goto="4" type="button">&larr; Back to location</button>
+  </div>
+</main>
+
+<!-- ============ STEP 6 — VR SCENARIO ============ -->
+<!-- Start / pause the VR session; the headsets read the live state from /api/vr/<code>/state. -->
+<main class="panel wide hidden" id="step-6">
+  <div class="panel-head row">
+    <div>
+      <h2>VR Scenario</h2>
+      <p id="vr-sub"></p>
+    </div>
+    <div class="head-actions">
+      <span class="vr-controls" id="vr-controls"></span>
+      <button class="btn primary" id="btn-vr-continue" type="button">Continue &rarr;</button>
+    </div>
+  </div>
+  <div class="vr-setup">
+    <label class="field"><span>Drill mode</span><select id="vr-mode"></select><small class="muted" id="vr-mode-info"></small></label>
+    <div class="vr-connect" id="vr-connect"></div>
+  </div>
+  <section class="vr-stage" aria-label="VR scenario">
+    <svg class="vr-icon" viewBox="0 0 64 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+      <path d="M8 6h48a4 4 0 0 1 4 4v18a4 4 0 0 1-4 4H43a4 4 0 0 1-3.4-1.9l-3.8-6.2a4.4 4.4 0 0 0-7.6 0l-3.8 6.2A4 4 0 0 1 21 32H8a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z"/>
+      <path d="M4 14H1v10h3M60 14h3v10h-3"/>
+      <path d="M22 6V3h20v3"/>
+    </svg>
+    <span class="vr-title">VR Scenario</span>
+    <span class="vr-text">Connect via VR headset</span>
+    <span class="vr-state" id="vr-state"></span>
+    <span class="vr-clock" id="vr-clock"></span>
+    <span class="vr-text" id="vr-events"></span>
+  </section>
+  <div class="panel-foot">
+    <button class="btn ghost" data-goto="5" type="button">&larr; Back to assignments</button>
+  </div>
+</main>
+
+<!-- ============ STEP 7 — ATTACK PARTY REPORT ============ -->
+<main class="panel wide hidden" id="step-7">
+  <div class="panel-head row">
+    <div>
+      <h2>Attack Party Report</h2>
+      <p id="assess-sub"></p>
+    </div>
+    <div class="head-actions">
+      <button class="btn ghost" id="btn-attack-sample" type="button">Fill test data</button>
+      <button class="btn primary" id="btn-to-timings" type="button">Continue &rarr;</button>
+    </div>
+  </div>
+
+  <section class="card">
+    <h3 class="card-title">First Response &mdash; Attack Party &amp; Attack &lsquo;BA&rsquo;</h3>
+    <p class="hint">The Attack Party and Attack &lsquo;BA&rsquo; close up first. Record what they report from the scene.</p>
+    <div class="attack-reports" id="attack-reports"></div>
+  </section>
+
+  <section class="card">
+    <h3 class="card-title" id="sev-title">Assessment</h3>
+    <div class="sev-grid" id="sev-grid"></div>
+    <label class="field sev-time">
+      <span>Time of report <em>(optional)</em></span>
+      <input type="time" id="in-assessed">
+    </label>
+    <div id="sev-deploy"></div>
+  </section>
+
+  <div class="panel-foot">
+    <button class="btn ghost" data-goto="6" type="button">&larr; Back to VR scenario</button>
+  </div>
+</main>
+
+<!-- ============ STEP 8 — TIMINGS & REMARKS ============ -->
+<main class="panel wide hidden" id="step-8">
+  <div class="panel-head row">
+    <div>
+      <h2>Timings &amp; Remarks</h2>
+      <p id="timing-sub"></p>
+    </div>
+    <div class="head-actions">
+      <button class="btn ghost" id="btn-sample" type="button">Fill test data</button>
+      <button class="btn ghost" id="btn-now-start" type="button">Stamp start &ndash; now</button>
+      <button class="btn ghost" id="btn-now-end" type="button">Stamp end &ndash; now</button>
+      <button class="btn primary" id="btn-to-report" type="button">Generate Report &rarr;</button>
+    </div>
+  </div>
+
+  <section class="card">
+    <h3 class="card-title">Incident Particulars</h3>
+    <div class="field-grid">
+      <label class="field">
+        <span>Date</span>
+        <input type="date" id="in-date">
+      </label>
+      <label class="field">
+        <span>Start Time <em>(alarm raised)</em></span>
+        <input type="time" id="in-start">
+      </label>
+      <label class="field">
+        <span>End Time <em>(secure)</em></span>
+        <input type="time" id="in-end">
+      </label>
+      <label class="field">
+        <span>Total Duration</span>
+        <output id="out-duration" class="readout">&mdash;</output>
+      </label>
+      <label class="field">
+        <span>Officer of the Day</span>
+        <input type="text" id="in-ood" placeholder="Name / rank">
+      </label>
+      <label class="field">
+        <span>Exercise / Real Incident</span>
+        <select id="in-kind">
+          <option value="Exercise">Exercise</option>
+          <option value="Real Incident">Real Incident</option>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3 class="card-title" id="pt-title">Party Timings &amp; Remarks</h3>
+    <p class="hint">Time in / out per party is optional &mdash; leave blank to fall back to the incident start and end times.</p>
+    <div class="party-timing-table" id="party-timings"></div>
+  </section>
+
+  <section class="card">
+    <h3 class="card-title" id="remarks-title">General Remarks</h3>
+    <textarea id="in-remarks" rows="4" placeholder="Observations, equipment defects, lessons identified, casualties, damage control measures taken&hellip;"></textarea>
+  </section>
+
+  <div class="panel-foot">
+    <button class="btn ghost" data-goto="7" type="button">&larr; Back to attack party report</button>
+  </div>
+</main>
+
+<!-- ============ STEP 9 — REPORT ============ -->
+<main class="panel wide hidden" id="step-9">
+  <div class="panel-head row no-print">
+    <div>
+      <h2>Deployment Report</h2>
+      <p id="report-sub"></p>
+    </div>
+    <div class="head-actions">
+      <button class="btn ghost" id="btn-print" type="button">Print / Save PDF</button>
+      <button class="btn danger-solid" id="btn-close-session" type="button">Close session</button>
+      <button class="btn primary" data-goto="8" type="button">&larr; Edit timings</button>
+    </div>
+  </div>
+  <div id="report-body"></div>
+</main>
+
+<div class="toast hidden" id="toast"></div>
+
+<script src="js/api.js"></script>
+<script src="js/session.js"></script>
+</body>
+</html>

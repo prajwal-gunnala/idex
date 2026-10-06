@@ -1,0 +1,11 @@
+
+> emergency-party-board@2.0.0 start
+> node server/server.js
+
+
+  Emergency Party Board is running
+  This computer:   http://localhost:8080
+  Same network:    http://192.168.21.175:8080
+  Database:        /home/prajwal/Documents/HEP/data/db.json
+  Administrator:   login "admin" · new accounts get password 123456
+

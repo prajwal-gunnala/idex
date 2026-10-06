@@ -1,0 +1,12 @@
+{
+  "name": "emergency-party-board",
+  "version": "2.0.0",
+  "private": true,
+  "description": "HEP / SSEP firefighting & damage-control training board with VR session control — Indian Coast Guard",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

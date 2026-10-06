@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emergency Party Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="assets/icg-logo.png">
+</head>
+<body>
+
+<header class="app-header">
+  <div class="wrap header-inner">
+    <img src="assets/icg-logo.png" alt="भारतीय तटरक्षक — Indian Coast Guard" class="brand-logo">
+    <span class="header-divider" aria-hidden="true"></span>
+    <div class="header-title">
+      <span class="header-app">Emergency Party Board</span>
+      <span class="header-app-sub">HEP &middot; SSEP &mdash; Firefighting &amp; Damage Control &middot; VR Training</span>
+    </div>
+    <div class="header-actions"><span id="clock" class="clock"></span></div>
+  </div>
+</header>
+
+<main class="panel auth-page">
+  <!-- first run only -->
+  <section class="card auth-card hidden" id="setup-card">
+    <h3 class="card-title">First-time set-up &mdash; create the administrator</h3>
+    <p class="hint">This account manages users and roles, the Officer of the Day roster, the organisation plans and the moderator tools.</p>
+    <form class="auth-form" id="setup-form">
+      <label class="field"><span>Full name</span><input name="name" required autocomplete="name"></label>
+      <label class="field"><span>Rank</span><input name="rank" placeholder="e.g. Cdr"></label>
+      <label class="field"><span>Login</span><input name="login" required autocomplete="username" placeholder="e.g. admin"></label>
+      <label class="field"><span>Password <em>(6+ characters)</em></span><input name="password" type="password" required minlength="6" autocomplete="new-password"></label>
+      <button class="btn primary" type="submit">Create administrator &amp; sign in</button>
+    </form>
+  </section>
+
+  <div class="auth-grid hidden" id="auth-grid">
+    <section class="card auth-card">
+      <h3 class="card-title">Sign in</h3>
+      <p class="hint">Administrators, officers and participants all sign in here.</p>
+      <form class="auth-form" id="login-form">
+        <label class="field"><span>Name or login</span><input name="login" required autocomplete="username" placeholder="e.g. Ravi Kumar or admin"></label>
+        <label class="field"><span>Password</span><input name="password" type="password" required autocomplete="current-password"></label>
+        <button class="btn primary" type="submit">Sign in</button>
+      </form>
+    </section>
+
+    <section class="card auth-card" id="register-card">
+      <h3 class="card-title">Register as a participant</h3>
+      <form class="auth-form auth-form-2" id="register-form">
+        <label class="field span-2"><span>Full name</span><input name="name" required autocomplete="name" placeholder="Used to sign in"></label>
+        <label class="field"><span>Rank <em>(optional)</em></span><input name="rank" placeholder="e.g. Nvk"></label>
+        <label class="field"><span>Service number <em>(optional)</em></span><input name="login" autocomplete="username"></label>
+        <label class="field"><span>Trade <em>(optional)</em></span><select name="trade" id="reg-trade"></select></label>
+        <label class="field"><span>Ship</span><select name="shipId" id="reg-ship"></select></label>
+        <button class="btn primary span-2" type="submit">Register &amp; sign in</button>
+      </form>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span>Emergency Party Board &middot; HEP &middot; SSEP &middot; Firefighting &amp; Damage Control</span>
+    <span>For shipboard training &amp; record</span>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script>
+(async () => {
+  startClock();
+  // already signed in → straight to the right page
+  if (API.token) {
+    try { const me = await API.get('/me'); location.href = homeFor(me.user.role); return; } catch (e) { API.token = null; }
+  }
+  const form = f => Object.fromEntries(new FormData(f).entries());
+  const signedIn = r => { API.token = r.token; location.href = homeFor(r.user.role); };
+
+  const { needsSetup } = await API.get('/setup');
+  if (needsSetup) {
+    $('#setup-card').classList.remove('hidden');
+    $('#setup-form').onsubmit = ev => { ev.preventDefault(); attempt(() => API.post('/setup', form(ev.target))).then(signedIn); };
+    return;
+  }
+
+  $('#auth-grid').classList.remove('hidden');
+  $('#login-form').onsubmit = ev => { ev.preventDefault(); attempt(() => API.post('/auth/login', form(ev.target))).then(signedIn); };
+
+  const pc = await API.get('/public-config');
+  if (!pc.allowSelfRegistration) {
+    $('#register-card').innerHTML = '<h3 class="card-title">Register as a participant</h3><p class="hint" style="padding:0 22px 22px">Self-registration is switched off. Ask the administrator to create your account.</p>';
+    return;
+  }
+  $('#reg-trade').innerHTML = '<option value="">— select —</option>' +
+    Object.entries(pc.trades).filter(([k]) => k !== 'OFFR').map(([k, t]) => `<option value="${esc(k)}">${esc(t.code)} — ${esc(t.label)}</option>`).join('');
+  $('#reg-ship').innerHTML = pc.ships.map(s => `<option value="${esc(s.id)}">${esc(s.klass + ' ' + s.name)}</option>`).join('');
+  $('#register-form').onsubmit = ev => { ev.preventDefault(); attempt(() => API.post('/auth/register', form(ev.target))).then(signedIn); };
+})();
+</script>
+</body>
+</html>

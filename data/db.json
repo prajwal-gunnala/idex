@@ -1,0 +1,3186 @@
+{
+ "schema": 1,
+ "users": [
+  {
+   "id": "9afb966b2c579e78",
+   "role": "admin",
+   "login": "admin",
+   "name": "Admin",
+   "rank": "",
+   "trade": "",
+   "shipId": "",
+   "passHash": "09d07ee1d3e3efa469385eb2dfa0e9ce:25b53f6af033de0f12f751874d191255f03220e840566fb4b595b7acd3427d56",
+   "active": true,
+   "demo": false,
+   "createdAt": "2026-09-28T12:54:36.963Z",
+   "createdBy": "system"
+  },
+  {
+   "id": "e844407146f14f29",
+   "role": "officer",
+   "login": "demo.officer1",
+   "name": "Demo Officer 1",
+   "rank": "Lt",
+   "trade": "OFFR",
+   "shipId": "opv",
+   "passHash": "386a75c5152962fc66f2332e8dce6b34:a26fc05b3a1ad5f1a82d0b1dfd511852bd0de523d81aa3d86892be154737f80b",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:38.958Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "d3d8193e136ceb67",
+   "role": "officer",
+   "login": "demo.officer2",
+   "name": "Demo Officer 2",
+   "rank": "Lt Cdr",
+   "trade": "OFFR",
+   "shipId": "opv",
+   "passHash": "9a4971b2679660e2eec3b18783ea27d3:bcf47605c95d0dbc2aa5e3e8293b7d2bc9f8d7173d0d2925ce7d3b0d5584bf1c",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:38.996Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "81e83d5ee96ff976",
+   "role": "user",
+   "login": "demo01",
+   "name": "Demo Hand 01",
+   "rank": "Nvk",
+   "trade": "IC",
+   "shipId": "opv",
+   "passHash": "d7b1a4870e22bf66be5702cec58b367c:df8b6a7b438eb6fbaedcd3a66e416092016766feea130ffb3d5a94e69b0ae435",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.035Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "4be2a827c7601d57",
+   "role": "user",
+   "login": "demo02",
+   "name": "Demo Hand 02",
+   "rank": "Nvk",
+   "trade": "ME",
+   "shipId": "opv",
+   "passHash": "f420b58b418981099658e6b56dc56c6c:5da0d35665e270915037f9e122b8ad1200d883451b1149645f2a21a18522112c",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.074Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "17537e9d5f09819f",
+   "role": "user",
+   "login": "demo03",
+   "name": "Demo Hand 03",
+   "rank": "P/Nvk",
+   "trade": "P",
+   "shipId": "opv",
+   "passHash": "5fd2910ad415126f2d0827e2e0165edb:ebf263bb7cd608da2140f2240eed945ec87c9f346f11d978a0b08efe751e56f6",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.112Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "f2dcb9e3157baa1c",
+   "role": "user",
+   "login": "demo04",
+   "name": "Demo Hand 04",
+   "rank": "L/Nvk",
+   "trade": "QARP",
+   "shipId": "opv",
+   "passHash": "bdd1c3bfc54f0bec5715347922a70147:ce081d94839a53dbf604cec7b9fb8df7d2a1751ae148c66966aae94d69c43535",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.149Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "bafa0ff0d948d354",
+   "role": "user",
+   "login": "demo05",
+   "name": "Demo Hand 05",
+   "rank": "Yantrik",
+   "trade": "QARP",
+   "shipId": "opv",
+   "passHash": "d8b16babc6915bf4ddea2f0709fbcf95:e7563c76323f76c068acd95a3de71914cd83d6f0a5264bd870a673f9abae118d",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.186Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "47ea43a4c24f650f",
+   "role": "user",
+   "login": "demo06",
+   "name": "Demo Hand 06",
+   "rank": "P/Yantrik",
+   "trade": "SAILOR",
+   "shipId": "opv",
+   "passHash": "90e2d841a8c067a74c38ed52a1c1eb03:ebfc961f1b641d259a771beeab4423e1fcd482c216fb369079f79e7076bc9472",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.227Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "eb90be3c583dc9fd",
+   "role": "user",
+   "login": "demo07",
+   "name": "Demo Hand 07",
+   "rank": "Nvk",
+   "trade": "ME",
+   "shipId": "opv",
+   "passHash": "3ea0b360e2fdb72aad444bd481d4d4de:717bc148853e74e90b04300320ff8c1068fdfa1317a3645078aed8af1c9c8e93",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.270Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "5b5932c721f02bac",
+   "role": "user",
+   "login": "demo08",
+   "name": "Demo Hand 08",
+   "rank": "Nvk",
+   "trade": "QARP",
+   "shipId": "opv",
+   "passHash": "e8d5a622d99334bb73cd76f19b44011d:9a0489149d4d69e74dd67e329054eb67f736cc547bfa66257b40d841fef5ec65",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.314Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "5e7d9e41689ac894",
+   "role": "user",
+   "login": "demo09",
+   "name": "Demo Hand 09",
+   "rank": "P/Nvk",
+   "trade": "QARP",
+   "shipId": "opv",
+   "passHash": "ee91b1edbf362c55a82353ed9b9e1026:e9016f1a0253039656f9747c19ac342c75e9bb94f4d389e23c00d98530a0689e",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.353Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "9ed088f7cc9c9155",
+   "role": "user",
+   "login": "demo10",
+   "name": "Demo Hand 10",
+   "rank": "L/Nvk",
+   "trade": "JRNVK",
+   "shipId": "opv",
+   "passHash": "2c3ab38adc66a2b0892861cd6df21720:a15400f5e87bd2ab2f2e90498964cbf1667a72ee5aa89128525c51c15d2e00bd",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.392Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "5ade31be26f08f84",
+   "role": "user",
+   "login": "demo11",
+   "name": "Demo Hand 11",
+   "rank": "Yantrik",
+   "trade": "JRNVK",
+   "shipId": "opv",
+   "passHash": "e62124c0d09f7c74d56dc039cf91d0d7:de6dcda091bb25abcbcdc55853a8554772214ee3b15aff30740043e6a1be5708",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.431Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "f46d30af36eb2de1",
+   "role": "user",
+   "login": "demo12",
+   "name": "Demo Hand 12",
+   "rank": "P/Yantrik",
+   "trade": "JRNVK",
+   "shipId": "opv",
+   "passHash": "f91edea8049597383470cc6bd963e656:1af8ef3c2e6238a4418fb4b4ecd2d47e065e0e2649880063f6c7eb3848bcb3fe",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.471Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "5d3a8647433922a1",
+   "role": "user",
+   "login": "demo13",
+   "name": "Demo Hand 13",
+   "rank": "Nvk",
+   "trade": "SS",
+   "shipId": "opv",
+   "passHash": "f97bc967c4702e9364e2afe101449c64:e86dc7a1440effe49752754be43583f04701528341cc2c46758fc68fb66d31ed",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.508Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "0098e9939ddc5a57",
+   "role": "user",
+   "login": "demo14",
+   "name": "Demo Hand 14",
+   "rank": "Nvk",
+   "trade": "SS",
+   "shipId": "opv",
+   "passHash": "19c6a3bbbea1b13bf1c6b185166ce098:34886096feefb8b64dbc6ca29f14cde8277e6632ec7c3b192c4e094a6ed0d44e",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.547Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "5740eb91982a8b53",
+   "role": "user",
+   "login": "demo15",
+   "name": "Demo Hand 15",
+   "rank": "P/Nvk",
+   "trade": "ERSS",
+   "shipId": "opv",
+   "passHash": "34bd4ff074ed1a9e6b8ca47758fce46a:d2638d68bfbdcc79efb89358b2524e6f225b0c19075f91ef4dec15adb15b4876",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.587Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "7fcbe0aa48474183",
+   "role": "user",
+   "login": "demo16",
+   "name": "Demo Hand 16",
+   "rank": "L/Nvk",
+   "trade": "ELSS",
+   "shipId": "opv",
+   "passHash": "4bb014a19c8ffe9fd48a3fa015b94e78:d94d6991422caded2229bee00310349d20f24b508ef5c928e1dc73527eee1ea6",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.627Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "0cfcd06e6b4be44b",
+   "role": "user",
+   "login": "demo17",
+   "name": "Demo Hand 17",
+   "rank": "Yantrik",
+   "trade": "COMM",
+   "shipId": "opv",
+   "passHash": "0a57bc5e40faddd227b5093cd0d3f740:81e25f38f96c8720698a40cd1d344e49079dca390eda52c0924e55231142cceb",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.666Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "9f1d8b9a575366b0",
+   "role": "user",
+   "login": "demo18",
+   "name": "Demo Hand 18",
+   "rank": "P/Yantrik",
+   "trade": "SAILOR",
+   "shipId": "opv",
+   "passHash": "68eb24d90f21302012315fd8b2012030:9fb571c473bfd1c819c4c8ad41b08502cfe3402a4bf653a83c7d21f1accd0b31",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.703Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "d4484b19c3ed1d98",
+   "role": "user",
+   "login": "demo19",
+   "name": "Demo Hand 19",
+   "rank": "Nvk",
+   "trade": "JRNVK",
+   "shipId": "opv",
+   "passHash": "7e613a90331f1ca2bba99fa46126c8f0:8c08b1ab3dff2fb6f888df16f584e775922974e106590ab25a8720c4706cef06",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.742Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "fff0deceb1aa58a4",
+   "role": "user",
+   "login": "demo20",
+   "name": "Demo Hand 20",
+   "rank": "Nvk",
+   "trade": "ME",
+   "shipId": "opv",
+   "passHash": "a0fd539b61548d15703cd42db5209a91:5ea214492fcb3a63d21e9846e34cb05f58615730cc998f30cdebb07838571ef5",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.781Z",
+   "createdBy": "9afb966b2c579e78"
+  },
+  {
+   "id": "cd9000df893f10a1",
+   "role": "user",
+   "login": "demo21",
+   "name": "Demo Hand 21",
+   "rank": "P/Nvk",
+   "trade": "QARP",
+   "shipId": "opv",
+   "passHash": "cb4fce8473459b32d0014c623d518697:3c372905fe9fc2b2a1c30eb50758eb8de8a6ff7f29fc786f6b0a0726c3bea6ed",
+   "active": true,
+   "demo": true,
+   "createdAt": "2026-09-28T12:56:39.819Z",
+   "createdBy": "9afb966b2c579e78"
+  }
+ ],
+ "tokens": {
+  "8ea20f62893d84e25f360d73baccecdc929dc3fad385195337edefaa98e67ba5": {
+   "userId": "9afb966b2c579e78",
+   "exp": 1791204877948
+  },
+  "165b5966ecea153a256ef60188deb776af9fc413a97a294dc0668ab71c17e0ad": {
+   "userId": "69fcb098f586e485",
+   "exp": 1791204878090
+  },
+  "3ae8fd66d1a862a74c6eb95f556ecb40500a0f3e1a915f008c7cd8bfcfff8da3": {
+   "userId": "9b41ac55174a0ca4",
+   "exp": 1791204878141
+  },
+  "b563f9b7c7d2b78ad4ce778e95b2d3002416be81bb01734375c38f2f31581b82": {
+   "userId": "9f199140dc528d09",
+   "exp": 1791204878191
+  },
+  "14fcfcfdc98a520ec779e5167c4f46f8ce3e319b2177300a38e9b09fef6cf9d6": {
+   "userId": "9b41ac55174a0ca4",
+   "exp": 1791204878653
+  },
+  "eb3efcdb4744d3c3009728c82e4442aa946c9ab991cd6aeeaa127e6dba3b6e9d": {
+   "userId": "5e9a48660af48197",
+   "exp": 1791204906981
+  },
+  "0c0cd9120f2f2acb18a4bb3bb64de91ba1f4a86b773fd13f90d801ade2a973e6": {
+   "userId": "9afb966b2c579e78",
+   "exp": 1791204907199
+  },
+  "fb641f052a67988142854467c72cd2bcbc40c968bbc2ea73cecc447877c35106": {
+   "userId": "9afb966b2c579e78",
+   "exp": 1791204998901
+  },
+  "3cfe14f77fb482bb452ca04750251af984564fcf521d115ab1523eb921c006a9": {
+   "userId": "e844407146f14f29",
+   "exp": 1791204999979
+  },
+  "35e6620ed6f0bedf4d12126c0c6f9654a1dc1c59c6531b14d298386fcb6a546c": {
+   "userId": "9afb966b2c579e78",
+   "exp": 1791205022294
+  },
+  "7f401fb544dc5b0638e7017a1132e832955a871adf5ff4c6fb4eaf43aed73cf1": {
+   "userId": "9afb966b2c579e78",
+   "exp": 1791205064392
+  },
+  "f48023194ca14b970219b85cd2cf84cc405fbe740606b2eebba5a6f7142f337d": {
+   "userId": "9afb966b2c579e78",
+   "exp": 1791205074166
+  },
+  "042224d689ebc0b2a98358934d0e0021d48d3080390d5433eddc3a8df2b61450": {
+   "userId": "9afb966b2c579e78",
+   "exp": 1791205108131
+  },
+  "c17612edbfadb2588b8df5b91c9d955aed08a565d5415606a05dcdd7a277d3d0": {
+   "userId": "81e83d5ee96ff976",
+   "exp": 1791205292781
+  },
+  "3006d04e747c1c365c839d30add424d471d0ba7b08a7d56467dc899efcb7d8a3": {
+   "userId": "9afb966b2c579e78",
+   "exp": 1791205884307
+  },
+  "11688c9a7126bcd93731455ffff7c23198bf30093fe59a14b81aed2e8a5a3f8a": {
+   "userId": "e844407146f14f29",
+   "exp": 1791205884380
+  },
+  "1bbb41923b263f332b564e5dd69834c07d73a7461ecc08365deb9f8a12caae45": {
+   "userId": "4be2a827c7601d57",
+   "exp": 1791205884479
+  },
+  "f70135f96e36a1b45d5f7ad32a4e49972d76affc2d811207189115f94dd482ee": {
+   "userId": "17537e9d5f09819f",
+   "exp": 1791205884532
+  },
+  "af7b8c53eeb07ce35833420f85a0f25c36ef304b6ab84665e10fc0793080cc6f": {
+   "userId": "f2dcb9e3157baa1c",
+   "exp": 1791205884579
+  },
+  "249905a506c679ab819e67729f4760ffd2d963cab74b6d4e63d291af259a9c28": {
+   "userId": "bafa0ff0d948d354",
+   "exp": 1791205884625
+  },
+  "21e41cf16b9eddcff92502e4c2d1db44a88f276900f07a2919017eb444809ae7": {
+   "userId": "d3d8193e136ceb67",
+   "exp": 1791205884679
+  },
+  "8c950de42fc39d457a76d00e1f895df90a9d766b4b29f91b2a5b88c509a92334": {
+   "userId": "81e83d5ee96ff976",
+   "exp": 1791205884767
+  },
+  "bacba54aee9137263e97adde5ab8662b6b72a2712ecc418d73558b4da70fde01": {
+   "userId": "eb90be3c583dc9fd",
+   "exp": 1791205884821
+  },
+  "05d89d67e1b3e84bdeb4a57ad58b5d44695049abda750258cf062768d97b6527": {
+   "userId": "9ed088f7cc9c9155",
+   "exp": 1791205884872
+  },
+  "cd2f954e724fc9dc6280784fbd8a496725497cae4a44f6d2219e5a9e5c5173de": {
+   "userId": "5ade31be26f08f84",
+   "exp": 1791205884917
+  },
+  "648d10b908297ace3faaeb1c99dbc22aa8f7daa255b704c4876dc091bd19c866": {
+   "userId": "f46d30af36eb2de1",
+   "exp": 1791205884967
+  },
+  "3fb577d97e6075b171ebebbbca061abc7c99347814ffd7b6e846e69d3e86ae40": {
+   "userId": "fff0deceb1aa58a4",
+   "exp": 1791205885026
+  },
+  "33a0aa471c4ede486a3de3ba94adeba5a570021388b88bf25fb4b7365a1e863a": {
+   "userId": "5740eb91982a8b53",
+   "exp": 1791205885072
+  },
+  "779ef6750cc3a2d6c757269ea66b09f00c0c3726343a0389241348ac82d2ca93": {
+   "userId": "47ea43a4c24f650f",
+   "exp": 1791205885190
+  },
+  "5c7967e870c85e0dcbec487af12ae5e112e9e1b0985f692dfd267376d0493187": {
+   "userId": "5d3a8647433922a1",
+   "exp": 1791205885234
+  },
+  "cfea055ca29aa8965e53725c9932c808b3064b94b62255727c7f5e1737ab4e10": {
+   "userId": "9afb966b2c579e78",
+   "exp": 1791205912424
+  },
+  "f03147a7e55963c4591791af1d456f4df48faf4c819de4c5ea466f14375da66c": {
+   "userId": "e844407146f14f29",
+   "exp": 1791205916487
+  },
+  "71e345874043afa2c9d394cb0c567e21ffd67ca6565bad2762008f4b12a858ff": {
+   "userId": "eb90be3c583dc9fd",
+   "exp": 1791205917640
+  },
+  "0b124f7c6112e8d0dfa5ae5da90519723095fa4e1a42a23cbf542210f4472670": {
+   "userId": "9afb966b2c579e78",
+   "exp": 1791206107329
+  },
+  "caddd8af43faa152f81d884d23cbd1b1b00774072f22e8c37843e780dc56d774": {
+   "userId": "e844407146f14f29",
+   "exp": 1791206125478
+  },
+  "d60ac78beed6f4f352a8e38a83dcecaa7e71ffff4135ccee8ec4fdbf1c95143f": {
+   "userId": "d3d8193e136ceb67",
+   "exp": 1791206127497
+  },
+  "82a9754b6e8f3126eeffd2924b56a4d5b27b8599d645fc4ea32dc1534c7b6f8c": {
+   "userId": "4be2a827c7601d57",
+   "exp": 1791206140841
+  },
+  "b4045e2559dbc1b26bab23017a226eef35ffcb877ace0b73d1777c41c493f38b": {
+   "userId": "eb90be3c583dc9fd",
+   "exp": 1791206142041
+  },
+  "baec4fe9cf2a7cd242beb766fef1dc0e27f99c9d1a68a376d19d240c74e1efcc": {
+   "userId": "eb90be3c583dc9fd",
+   "exp": 1791206144611
+  },
+  "8b0d747bf1b73ba78bb225d8b1c6c3d94d6847c8e9565ee242643567856a8080": {
+   "userId": "eb90be3c583dc9fd",
+   "exp": 1791206197028
+  },
+  "0fe4db8c7468432dd1b90d5e810963df32a22028f880049067ca2cbc6812d3cb": {
+   "userId": "eb90be3c583dc9fd",
+   "exp": 1791206223128
+  },
+  "257246e55af02548169af62796e2331cc36210405ff4027476b8af3589702584": {
+   "userId": "81e83d5ee96ff976",
+   "exp": 1791206719956
+  }
+ },
+ "duty": [
+  {
+   "date": "2026-09-28",
+   "shipId": "opv",
+   "officerId": "e844407146f14f29",
+   "setBy": "Admin",
+   "setAt": "2026-09-28T13:11:24.327Z"
+  },
+  {
+   "date": "2026-09-28",
+   "shipId": "pcv",
+   "officerId": "d3d8193e136ceb67",
+   "setBy": "Admin",
+   "setAt": "2026-09-28T13:11:24.332Z"
+  }
+ ],
+ "sessions": [
+  {
+   "id": "a39593ca2389087d",
+   "code": "C2857R",
+   "vrKey": "916e1e632eb23f6f",
+   "status": "live",
+   "createdAt": "2026-09-28T13:11:25.084Z",
+   "createdBy": "e844407146f14f29",
+   "officerId": "e844407146f14f29",
+   "step": 7,
+   "shipId": "opv",
+   "orgId": "HEP",
+   "incidentType": "FF",
+   "compartmentId": "engine-room",
+   "modeId": "timed",
+   "plan": {
+    "id": "OPV_PCV::HEP",
+    "head": {
+     "title": "OOD",
+     "spec": "Officer of the Day",
+     "slots": [
+      {
+       "trade": "OFFR"
+      }
+     ]
+    },
+    "groups": [
+     {
+      "id": "main",
+      "title": "Main Group",
+      "spec": "In-Charge",
+      "slots": [
+       {
+        "trade": "IC"
+       }
+      ],
+      "parties": [
+       {
+        "id": "attack",
+        "title": "Attack Party / Search Party",
+        "spec": "02 Jr. Nvks",
+        "mandatory": true,
+        "breakdown": "ME – 01, P – 01",
+        "slots": [
+         {
+          "trade": "ME"
+         },
+         {
+          "trade": "P"
+         }
+        ]
+       },
+       {
+        "id": "attackba",
+        "title": "Attack 'BA' / Repair Party",
+        "spec": "02 Jr Nvks",
+        "mandatory": true,
+        "breakdown": "QA/RP – 02",
+        "slots": [
+         {
+          "trade": "QARP"
+         },
+         {
+          "trade": "QARP"
+         }
+        ]
+       },
+       {
+        "id": "bacontroller",
+        "title": "BA Controller",
+        "spec": "01 Sailor",
+        "breakdown": "",
+        "handwritten": true,
+        "slots": [
+         {
+          "trade": "SAILOR"
+         }
+        ]
+       },
+       {
+        "id": "supporta",
+        "title": "Support 'A' / Pumping & De-Flooding Party",
+        "spec": "03 Jr Nvks",
+        "breakdown": "ME – 01, QA/RP – 02",
+        "slots": [
+         {
+          "trade": "ME"
+         },
+         {
+          "trade": "QARP"
+         },
+         {
+          "trade": "QARP"
+         }
+        ]
+       },
+       {
+        "id": "supportb",
+        "title": "Support 'B' / Shoring Party",
+        "spec": "03 Jr Nvks",
+        "breakdown": "",
+        "slots": [
+         {
+          "trade": "JRNVK"
+         },
+         {
+          "trade": "JRNVK"
+         },
+         {
+          "trade": "JRNVK"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "containment",
+      "title": "Containment Group",
+      "spec": "02 S&S Sailors",
+      "slots": [
+       {
+        "trade": "SS"
+       },
+       {
+        "trade": "SS"
+       }
+      ],
+      "parties": []
+     },
+     {
+      "id": "specialist",
+      "title": "Specialist Group",
+      "spec": "E/R SS · E/L SS · Communicator",
+      "slots": [
+       {
+        "trade": "ERSS"
+       },
+       {
+        "trade": "ELSS"
+       },
+       {
+        "trade": "COMM"
+       }
+      ],
+      "parties": []
+     }
+    ],
+    "notes": [
+     "Attack Party and Attack 'BA' are to regroup and provide assistance to Support 'A'."
+    ],
+    "version": 1,
+    "updatedAt": "2026-09-28T12:47:06.811Z",
+    "updatedBy": "system"
+   },
+   "severity": "major",
+   "assignments": {
+    "head#0": "e844407146f14f29",
+    "main#0": "81e83d5ee96ff976",
+    "main.attack#0": "eb90be3c583dc9fd",
+    "main.attack#1": "17537e9d5f09819f",
+    "main.attackba#0": "f2dcb9e3157baa1c",
+    "main.attackba#1": "bafa0ff0d948d354",
+    "main.bacontroller#0": "47ea43a4c24f650f",
+    "main.supporta#0": "fff0deceb1aa58a4",
+    "main.supporta#1": "5b5932c721f02bac",
+    "main.supporta#2": "5e7d9e41689ac894",
+    "main.supportb#0": "9ed088f7cc9c9155",
+    "main.supportb#1": "5ade31be26f08f84",
+    "main.supportb#2": "f46d30af36eb2de1",
+    "containment#0": "5d3a8647433922a1",
+    "containment#1": "0098e9939ddc5a57",
+    "specialist#0": "5740eb91982a8b53",
+    "specialist#1": "7fcbe0aa48474183",
+    "specialist#2": "0cfcd06e6b4be44b"
+   },
+   "people": {
+    "e844407146f14f29": {
+     "name": "Demo Officer 1",
+     "rank": "Lt",
+     "trade": "OFFR",
+     "login": "demo.officer1"
+    },
+    "81e83d5ee96ff976": {
+     "name": "Demo Hand 01",
+     "rank": "Nvk",
+     "trade": "IC",
+     "login": "demo01"
+    },
+    "eb90be3c583dc9fd": {
+     "name": "Demo Hand 07",
+     "rank": "Nvk",
+     "trade": "ME",
+     "login": "demo07"
+    },
+    "17537e9d5f09819f": {
+     "name": "Demo Hand 03",
+     "rank": "P/Nvk",
+     "trade": "P",
+     "login": "demo03"
+    },
+    "f2dcb9e3157baa1c": {
+     "name": "Demo Hand 04",
+     "rank": "L/Nvk",
+     "trade": "QARP",
+     "login": "demo04"
+    },
+    "bafa0ff0d948d354": {
+     "name": "Demo Hand 05",
+     "rank": "Yantrik",
+     "trade": "QARP",
+     "login": "demo05"
+    },
+    "47ea43a4c24f650f": {
+     "name": "Demo Hand 06",
+     "rank": "P/Yantrik",
+     "trade": "SAILOR",
+     "login": "demo06"
+    },
+    "fff0deceb1aa58a4": {
+     "name": "Demo Hand 20",
+     "rank": "Nvk",
+     "trade": "ME",
+     "login": "demo20"
+    },
+    "5b5932c721f02bac": {
+     "name": "Demo Hand 08",
+     "rank": "Nvk",
+     "trade": "QARP",
+     "login": "demo08"
+    },
+    "5e7d9e41689ac894": {
+     "name": "Demo Hand 09",
+     "rank": "P/Nvk",
+     "trade": "QARP",
+     "login": "demo09"
+    },
+    "9ed088f7cc9c9155": {
+     "name": "Demo Hand 10",
+     "rank": "L/Nvk",
+     "trade": "JRNVK",
+     "login": "demo10"
+    },
+    "5ade31be26f08f84": {
+     "name": "Demo Hand 11",
+     "rank": "Yantrik",
+     "trade": "JRNVK",
+     "login": "demo11"
+    },
+    "f46d30af36eb2de1": {
+     "name": "Demo Hand 12",
+     "rank": "P/Yantrik",
+     "trade": "JRNVK",
+     "login": "demo12"
+    },
+    "5d3a8647433922a1": {
+     "name": "Demo Hand 13",
+     "rank": "Nvk",
+     "trade": "SS",
+     "login": "demo13"
+    },
+    "0098e9939ddc5a57": {
+     "name": "Demo Hand 14",
+     "rank": "Nvk",
+     "trade": "SS",
+     "login": "demo14"
+    },
+    "5740eb91982a8b53": {
+     "name": "Demo Hand 15",
+     "rank": "P/Nvk",
+     "trade": "ERSS",
+     "login": "demo15"
+    },
+    "7fcbe0aa48474183": {
+     "name": "Demo Hand 16",
+     "rank": "L/Nvk",
+     "trade": "ELSS",
+     "login": "demo16"
+    },
+    "0cfcd06e6b4be44b": {
+     "name": "Demo Hand 17",
+     "rank": "Yantrik",
+     "trade": "COMM",
+     "login": "demo17"
+    }
+   },
+   "partyTimings": {
+    "main.attack": {
+     "remarks": "Fire at the port main-engine fuel filter; first attack with foam, re-ignition after 6 minutes.",
+     "remarksBy": "Demo Hand 07",
+     "remarksAt": "2026-09-28T13:11:25.131Z"
+    },
+    "main.attackba": {
+     "remarks": "Two BA teams rotated; second entry via escape trunk after the re-ignition.",
+     "remarksBy": "Demo Hand 04",
+     "remarksAt": "2026-09-28T13:11:25.139Z"
+    },
+    "main.bacontroller": {
+     "remarks": "Two BA teams logged; team 1 withdrawn on low-air whistle, relieved by team 2.",
+     "remarksBy": "Demo Hand 06",
+     "remarksAt": "2026-09-28T13:11:25.192Z"
+    },
+    "containment": {
+     "remarks": "Machinery-space ventilation stopped, quick-closing fuel valves operated.",
+     "remarksBy": "Demo Hand 13",
+     "remarksAt": "2026-09-28T13:11:25.236Z"
+    }
+   },
+   "personRemarks": {
+    "eb90be3c583dc9fd": {
+     "text": "Used 2 × CO2 extinguishers; visibility poor near the deckhead.",
+     "at": "2026-09-28T13:11:25.131Z"
+    },
+    "17537e9d5f09819f": {
+     "text": "Carried the thermal imaging camera; reported hot spots to the BA controller.",
+     "at": "2026-09-28T13:11:25.135Z"
+    },
+    "f2dcb9e3157baa1c": {
+     "text": "Ran out 2 lengths of 45 mm hose; nozzle on spray.",
+     "at": "2026-09-28T13:11:25.139Z"
+    },
+    "bafa0ff0d948d354": {
+     "text": "Checked the boundary every 5 minutes and reported to containment.",
+     "at": "2026-09-28T13:11:25.143Z"
+    },
+    "47ea43a4c24f650f": {
+     "text": "Operated the portable pump; suction strainer cleared once.",
+     "at": "2026-09-28T13:11:25.192Z"
+    },
+    "5d3a8647433922a1": {
+     "text": "Hammered in 3 wooden wedges; needed a second soft patch.",
+     "at": "2026-09-28T13:11:25.236Z"
+    }
+   },
+   "completed": {
+    "47ea43a4c24f650f": "2026-09-28T13:11:25.192Z"
+   },
+   "incident": {
+    "date": "2026-09-28",
+    "start": "18:41",
+    "end": "",
+    "ood": "Demo Officer 1",
+    "kind": "Exercise",
+    "remarks": "",
+    "assessedAt": "18:37"
+   },
+   "live": {
+    "env": {
+     "fireIntensity": 9,
+     "smoke": 65,
+     "temperature": 220,
+     "co2": 3.5,
+     "o2": 18.5,
+     "co": 400,
+     "visibility": 5,
+     "waterLevel": 0,
+     "leakRate": 0,
+     "firemain": 7
+    },
+    "cues": {
+     "flames": {
+      "on": true,
+      "intensity": 60
+     },
+     "smokeVis": {
+      "on": true,
+      "intensity": 50
+     },
+     "waterIngress": {
+      "on": true,
+      "intensity": 60
+     },
+     "emergLight": {
+      "on": true,
+      "intensity": 40
+     },
+     "strobe": {
+      "on": true,
+      "intensity": 70
+     },
+     "generalAlarm": {
+      "on": true,
+      "intensity": 80
+     },
+     "pipe": {
+      "on": true,
+      "intensity": 80
+     },
+     "crackle": {
+      "on": true,
+      "intensity": 50
+     },
+     "waterRush": {
+      "on": true,
+      "intensity": 60
+     },
+     "radio": {
+      "on": false,
+      "intensity": 40
+     },
+     "rumble": {
+      "on": true,
+      "intensity": 50
+     },
+     "heatVest": {
+      "on": true,
+      "intensity": 60
+     },
+     "floorVib": {
+      "on": false,
+      "intensity": 30
+     },
+     "radiantHeat": {
+      "on": false,
+      "intensity": 30
+     },
+     "smokeScent": {
+      "on": false,
+      "intensity": 30
+     }
+    },
+    "startedAt": "2026-09-28T13:11:25.097Z",
+    "pausedAt": null,
+    "elapsedMs": 0
+   },
+   "messages": [
+    {
+     "id": "2fb7eee731d9b5c0",
+     "at": "2026-09-28T13:11:25.104Z",
+     "by": "Moderator",
+     "to": "all",
+     "text": "Fire, fire, fire — fire in the engine room. HEP close up.",
+     "kind": "message"
+    },
+    {
+     "id": "295a6e21d5c10f83",
+     "at": "2026-09-28T13:11:25.119Z",
+     "by": "Moderator",
+     "to": "all",
+     "text": "⚠ Casualty — Unconscious sailor found in the compartment.",
+     "kind": "inject"
+    },
+    {
+     "id": "c81467e25e327d39",
+     "at": "2026-09-28T13:11:25.122Z",
+     "by": "Moderator",
+     "to": "all",
+     "text": "⚠ Re-ignition — Fire re-ignites after being reported out.",
+     "kind": "inject"
+    },
+    {
+     "id": "3aeedbed77d5c341",
+     "at": "2026-09-28T13:11:25.128Z",
+     "by": "Moderator",
+     "to": "unit:main.attack",
+     "text": "Attack Party — report the state of the fire and the casualty to the OOD.",
+     "kind": "message"
+    }
+   ],
+   "timeline": [
+    {
+     "at": "2026-09-28T13:11:25.084Z",
+     "by": "Demo Officer 1",
+     "type": "session",
+     "text": "Session C2857R created for OPV Vigraha."
+    },
+    {
+     "at": "2026-09-28T13:11:25.087Z",
+     "by": "Demo Officer 1",
+     "type": "setup",
+     "text": "Scenario: Ship in Harbour — HEP."
+    },
+    {
+     "at": "2026-09-28T13:11:25.087Z",
+     "by": "Demo Officer 1",
+     "type": "setup",
+     "text": "Incident type: Firefighting."
+    },
+    {
+     "at": "2026-09-28T13:11:25.087Z",
+     "by": "Demo Officer 1",
+     "type": "setup",
+     "text": "Location: Engine Room."
+    },
+    {
+     "at": "2026-09-28T13:11:25.087Z",
+     "by": "Demo Officer 1",
+     "type": "setup",
+     "text": "Drill mode: Timed Evaluation."
+    },
+    {
+     "at": "2026-09-28T13:11:25.097Z",
+     "by": "Demo Officer 1",
+     "type": "status",
+     "text": "VR session started — alarm raised."
+    },
+    {
+     "at": "2026-09-28T13:11:25.100Z",
+     "by": "Admin",
+     "type": "env",
+     "text": "Fire intensity → 6 /10"
+    },
+    {
+     "at": "2026-09-28T13:11:25.100Z",
+     "by": "Admin",
+     "type": "env",
+     "text": "Smoke density → 65 %"
+    },
+    {
+     "at": "2026-09-28T13:11:25.100Z",
+     "by": "Admin",
+     "type": "env",
+     "text": "Compartment temp. → 160 °C"
+    },
+    {
+     "at": "2026-09-28T13:11:25.100Z",
+     "by": "Admin",
+     "type": "env",
+     "text": "Carbon monoxide → 400 ppm"
+    },
+    {
+     "at": "2026-09-28T13:11:25.100Z",
+     "by": "Admin",
+     "type": "env",
+     "text": "Visibility → 5 m"
+    },
+    {
+     "at": "2026-09-28T13:11:25.100Z",
+     "by": "Admin",
+     "type": "cue",
+     "text": "Haptic cue ON: Heat vest"
+    },
+    {
+     "at": "2026-09-28T13:11:25.101Z",
+     "by": "Admin",
+     "type": "cue",
+     "text": "Visual cue ON: Emergency lighting"
+    },
+    {
+     "at": "2026-09-28T13:11:25.104Z",
+     "by": "Admin",
+     "type": "message",
+     "text": "Message to all hands: Fire, fire, fire — fire in the engine room. HEP close up."
+    },
+    {
+     "at": "2026-09-28T13:11:25.108Z",
+     "by": "VR",
+     "type": "vr",
+     "text": "Attack Party at the engine-room hatch"
+    },
+    {
+     "at": "2026-09-28T13:11:25.112Z",
+     "by": "VR",
+     "type": "vr",
+     "text": "Foam branch operated"
+    },
+    {
+     "at": "2026-09-28T13:11:25.115Z",
+     "by": "VR",
+     "type": "vr",
+     "text": "Casualty found near the port main engine"
+    },
+    {
+     "at": "2026-09-28T13:11:25.119Z",
+     "by": "Admin",
+     "type": "inject",
+     "text": "INJECT — Casualty: Unconscious sailor found in the compartment."
+    },
+    {
+     "at": "2026-09-28T13:11:25.122Z",
+     "by": "Admin",
+     "type": "inject",
+     "text": "INJECT — Re-ignition: Fire re-ignites after being reported out."
+    },
+    {
+     "at": "2026-09-28T13:11:25.125Z",
+     "by": "Admin",
+     "type": "env",
+     "text": "CO₂ concentration → 3.5 %"
+    },
+    {
+     "at": "2026-09-28T13:11:25.125Z",
+     "by": "Admin",
+     "type": "env",
+     "text": "Oxygen → 18.5 %"
+    },
+    {
+     "at": "2026-09-28T13:11:25.128Z",
+     "by": "Admin",
+     "type": "message",
+     "text": "Message to party main.attack: Attack Party — report the state of the fire and the casualty to the OOD."
+    },
+    {
+     "at": "2026-09-28T13:11:25.192Z",
+     "by": "Demo Hand 06",
+     "type": "participant",
+     "text": "Demo Hand 06 marked their part complete."
+    },
+    {
+     "at": "2026-09-28T13:11:25.240Z",
+     "by": "Demo Officer 1",
+     "type": "assessment",
+     "text": "Attack Party report — MAJOR fire."
+    }
+   ],
+   "vrEvents": 3,
+   "rev": 30,
+   "updatedAt": "2026-09-28T13:15:40.023Z",
+   "vrLastSeen": "2026-09-28T13:11:25.115Z"
+  },
+  {
+   "id": "18b6de34fef21b31",
+   "code": "UTKVSK",
+   "vrKey": "357ff07bd76ad100",
+   "status": "closed",
+   "createdAt": "2026-09-28T13:11:24.681Z",
+   "createdBy": "d3d8193e136ceb67",
+   "officerId": "d3d8193e136ceb67",
+   "step": 9,
+   "shipId": "pcv",
+   "orgId": "SSEP",
+   "incidentType": "DC",
+   "compartmentId": "engine-room",
+   "modeId": "timed",
+   "plan": {
+    "id": "OPV_PCV::SSEP",
+    "head": {
+     "title": "SSEP",
+     "spec": "Standing Sea Emergency Party",
+     "slots": []
+    },
+    "groups": [
+     {
+      "id": "main",
+      "title": "Main Group",
+      "spec": "In-Charge",
+      "slots": [
+       {
+        "trade": "IC"
+       }
+      ],
+      "parties": [
+       {
+        "id": "attack",
+        "title": "Attack Party / Search Party",
+        "spec": "02 Jn Nvks",
+        "mandatory": true,
+        "breakdown": "ME – 01, P – 01",
+        "slots": [
+         {
+          "trade": "ME"
+         },
+         {
+          "trade": "P"
+         }
+        ]
+       },
+       {
+        "id": "attackba",
+        "title": "Attack 'BA' / Repair Party",
+        "spec": "02 Jn Nvks",
+        "mandatory": true,
+        "breakdown": "",
+        "slots": [
+         {
+          "trade": "JRNVK"
+         },
+         {
+          "trade": "JRNVK"
+         }
+        ]
+       },
+       {
+        "id": "bacontroller",
+        "title": "BA Controller",
+        "spec": "01 Nvk",
+        "breakdown": "",
+        "slots": [
+         {
+          "trade": "JRNVK"
+         }
+        ]
+       },
+       {
+        "id": "supporta",
+        "title": "Support 'A' / Pumping & De-Flooding Party",
+        "spec": "03 Jn Nvks",
+        "breakdown": "ME – 01, QA/RP – 02",
+        "slots": [
+         {
+          "trade": "ME"
+         },
+         {
+          "trade": "QARP"
+         },
+         {
+          "trade": "QARP"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "specialist",
+      "title": "Specialist Group",
+      "spec": "E/R Senior Sailor · E/L Senior Sailor",
+      "slots": [
+       {
+        "trade": "ERSS"
+       },
+       {
+        "trade": "ELSS"
+       }
+      ],
+      "parties": []
+     }
+    ],
+    "notes": [
+     "Attack Party is to provide assistance to Support 'A'.",
+     "If the SSEP is unable to cope with a fire — through lack of personnel or shortage of material resources — it is important that the Executive Officer elevates NBCD State II to State I Condition 'Z', followed by Emergency Stations, in good time. This gets the right people to the right place quickly and brings the ship's DC Parties to State I."
+    ],
+    "version": 1,
+    "updatedAt": "2026-09-28T12:47:06.811Z",
+    "updatedBy": "system"
+   },
+   "severity": "major",
+   "assignments": {
+    "main#0": "81e83d5ee96ff976",
+    "main.attack#0": "eb90be3c583dc9fd",
+    "main.attack#1": "17537e9d5f09819f",
+    "main.attackba#0": "9ed088f7cc9c9155",
+    "main.attackba#1": "5ade31be26f08f84",
+    "main.bacontroller#0": "f46d30af36eb2de1",
+    "main.supporta#0": "fff0deceb1aa58a4",
+    "main.supporta#1": "5b5932c721f02bac",
+    "main.supporta#2": "5e7d9e41689ac894",
+    "specialist#0": "5740eb91982a8b53",
+    "specialist#1": "7fcbe0aa48474183"
+   },
+   "people": {
+    "81e83d5ee96ff976": {
+     "name": "Demo Hand 01",
+     "rank": "Nvk",
+     "trade": "IC",
+     "login": "demo01"
+    },
+    "eb90be3c583dc9fd": {
+     "name": "Demo Hand 07",
+     "rank": "Nvk",
+     "trade": "ME",
+     "login": "demo07"
+    },
+    "17537e9d5f09819f": {
+     "name": "Demo Hand 03",
+     "rank": "P/Nvk",
+     "trade": "P",
+     "login": "demo03"
+    },
+    "9ed088f7cc9c9155": {
+     "name": "Demo Hand 10",
+     "rank": "L/Nvk",
+     "trade": "JRNVK",
+     "login": "demo10"
+    },
+    "5ade31be26f08f84": {
+     "name": "Demo Hand 11",
+     "rank": "Yantrik",
+     "trade": "JRNVK",
+     "login": "demo11"
+    },
+    "f46d30af36eb2de1": {
+     "name": "Demo Hand 12",
+     "rank": "P/Yantrik",
+     "trade": "JRNVK",
+     "login": "demo12"
+    },
+    "fff0deceb1aa58a4": {
+     "name": "Demo Hand 20",
+     "rank": "Nvk",
+     "trade": "ME",
+     "login": "demo20"
+    },
+    "5b5932c721f02bac": {
+     "name": "Demo Hand 08",
+     "rank": "Nvk",
+     "trade": "QARP",
+     "login": "demo08"
+    },
+    "5e7d9e41689ac894": {
+     "name": "Demo Hand 09",
+     "rank": "P/Nvk",
+     "trade": "QARP",
+     "login": "demo09"
+    },
+    "5740eb91982a8b53": {
+     "name": "Demo Hand 15",
+     "rank": "P/Nvk",
+     "trade": "ERSS",
+     "login": "demo15"
+    },
+    "7fcbe0aa48474183": {
+     "name": "Demo Hand 16",
+     "rank": "L/Nvk",
+     "trade": "ELSS",
+     "login": "demo16"
+    }
+   },
+   "partyTimings": {
+    "main": {
+     "remarks": "DC control established at the engine-room flat; flooding state reported every 5 minutes.",
+     "remarksBy": "Demo Hand 01",
+     "remarksAt": "2026-09-28T13:11:24.769Z",
+     "in": "17:50",
+     "out": "18:34"
+    },
+    "main.attack": {
+     "remarks": "Compartment searched; fractured sea-water cooling line at the port main engine located.",
+     "remarksBy": "Demo Hand 07",
+     "remarksAt": "2026-09-28T13:11:24.823Z",
+     "in": "17:48",
+     "out": "18:33"
+    },
+    "main.attackba": {
+     "remarks": "Entry in BA; leak partly plugged with wooden wedges; jubilee clip patch applied.",
+     "remarksBy": "Demo Hand 10",
+     "remarksAt": "2026-09-28T13:11:24.874Z",
+     "in": "17:49",
+     "out": "18:32"
+    },
+    "main.bacontroller": {
+     "remarks": "BA entry and exit logged; one wearer withdrawn on low-air warning.",
+     "remarksBy": "Demo Hand 12",
+     "remarksAt": "2026-09-28T13:11:24.973Z",
+     "in": "17:53",
+     "out": "18:34"
+    },
+    "main.supporta": {
+     "remarks": "Portable pump rigged through the escape trunk; water level held then reduced to bilge level.",
+     "remarksBy": "Demo Hand 20",
+     "remarksAt": "2026-09-28T13:11:25.029Z",
+     "in": "17:50",
+     "out": "18:33"
+    },
+    "specialist": {
+     "remarks": "Sea-water cooling pump isolated; main-engine stopped; shore-side of the valve shut.",
+     "remarksBy": "Demo Hand 15",
+     "remarksAt": "2026-09-28T13:11:25.073Z",
+     "in": "17:51",
+     "out": "18:32"
+    }
+   },
+   "personRemarks": {
+    "81e83d5ee96ff976": {
+     "text": "Used 2 × CO2 extinguishers; visibility poor near the deckhead.",
+     "at": "2026-09-28T13:11:24.769Z"
+    },
+    "eb90be3c583dc9fd": {
+     "text": "Carried the thermal imaging camera; reported hot spots to the BA controller.",
+     "at": "2026-09-28T13:11:24.823Z"
+    },
+    "17537e9d5f09819f": {
+     "text": "Ran out 2 lengths of 45 mm hose; nozzle on spray.",
+     "at": "2026-09-28T13:11:24.827Z"
+    },
+    "9ed088f7cc9c9155": {
+     "text": "Checked the boundary every 5 minutes and reported to containment.",
+     "at": "2026-09-28T13:11:24.874Z"
+    },
+    "5ade31be26f08f84": {
+     "text": "Operated the portable pump; suction strainer cleared once.",
+     "at": "2026-09-28T13:11:24.919Z"
+    },
+    "f46d30af36eb2de1": {
+     "text": "Hammered in 3 wooden wedges; needed a second soft patch.",
+     "at": "2026-09-28T13:11:24.973Z"
+    },
+    "fff0deceb1aa58a4": {
+     "text": "Kept the BA tally board and entry times.",
+     "at": "2026-09-28T13:11:25.029Z"
+    },
+    "5740eb91982a8b53": {
+     "text": "Isolated the supply at the section board as ordered.",
+     "at": "2026-09-28T13:11:25.073Z"
+    }
+   },
+   "completed": {
+    "eb90be3c583dc9fd": "2026-09-28T13:11:24.823Z",
+    "17537e9d5f09819f": "2026-09-28T13:11:24.827Z",
+    "9ed088f7cc9c9155": "2026-09-28T13:11:24.874Z",
+    "5ade31be26f08f84": "2026-09-28T13:11:24.919Z",
+    "f46d30af36eb2de1": "2026-09-28T13:11:24.973Z",
+    "fff0deceb1aa58a4": "2026-09-28T13:11:25.029Z",
+    "5740eb91982a8b53": "2026-09-28T13:11:25.073Z"
+   },
+   "incident": {
+    "date": "2026-09-28",
+    "start": "17:46",
+    "end": "18:34",
+    "ood": "Demo Officer 2",
+    "kind": "Exercise",
+    "remarks": "Fracture of the port main-engine sea-water cooling line; Attack Party assessed MAJOR damage after a second leak developed.\nSSEP closed up in full; leak plugged and patched, two portable pumps reduced the water to bilge level within 40 minutes.\nLesson: second portable pump to be stowed nearer the engine-room escape trunk.",
+    "assessedAt": "17:52"
+   },
+   "live": {
+    "env": {
+     "fireIntensity": 4,
+     "smoke": 40,
+     "temperature": 80,
+     "co2": 0.5,
+     "o2": 20.9,
+     "co": 50,
+     "visibility": 8,
+     "waterLevel": 20,
+     "leakRate": 150,
+     "firemain": 7
+    },
+    "cues": {
+     "flames": {
+      "on": true,
+      "intensity": 60
+     },
+     "smokeVis": {
+      "on": true,
+      "intensity": 50
+     },
+     "waterIngress": {
+      "on": true,
+      "intensity": 80
+     },
+     "emergLight": {
+      "on": false,
+      "intensity": 40
+     },
+     "strobe": {
+      "on": true,
+      "intensity": 70
+     },
+     "generalAlarm": {
+      "on": true,
+      "intensity": 80
+     },
+     "pipe": {
+      "on": true,
+      "intensity": 80
+     },
+     "crackle": {
+      "on": true,
+      "intensity": 50
+     },
+     "waterRush": {
+      "on": true,
+      "intensity": 60
+     },
+     "radio": {
+      "on": false,
+      "intensity": 40
+     },
+     "rumble": {
+      "on": true,
+      "intensity": 50
+     },
+     "heatVest": {
+      "on": false,
+      "intensity": 40
+     },
+     "floorVib": {
+      "on": false,
+      "intensity": 30
+     },
+     "radiantHeat": {
+      "on": false,
+      "intensity": 30
+     },
+     "smokeScent": {
+      "on": false,
+      "intensity": 30
+     }
+    },
+    "startedAt": "2026-09-28T13:11:24.690Z",
+    "pausedAt": null,
+    "elapsedMs": 390
+   },
+   "messages": [
+    {
+     "id": "62fec57d87608cab",
+     "at": "2026-09-28T13:11:24.699Z",
+     "by": "Moderator",
+     "to": "all",
+     "text": "Flooding in the engine room — SSEP close up at the engine-room flat.",
+     "kind": "message"
+    },
+    {
+     "id": "a27b273ad9c4af0b",
+     "at": "2026-09-28T13:11:24.713Z",
+     "by": "Moderator",
+     "to": "all",
+     "text": "⚠ Second leak / pipe burst — A second pipe fractures in the compartment.",
+     "kind": "inject"
+    },
+    {
+     "id": "619cc5c0fa2d4099",
+     "at": "2026-09-28T13:11:24.716Z",
+     "by": "Moderator",
+     "to": "all",
+     "text": "⚠ BA low-air warning — A BA wearer's low-pressure whistle sounds.",
+     "kind": "inject"
+    },
+    {
+     "id": "77382e524792d2db",
+     "at": "2026-09-28T13:11:24.722Z",
+     "by": "Moderator",
+     "to": "unit:main.supporta",
+     "text": "Support A — rig the second portable pump through the escape trunk.",
+     "kind": "message"
+    }
+   ],
+   "timeline": [
+    {
+     "at": "2026-09-28T13:11:24.681Z",
+     "by": "Demo Officer 2",
+     "type": "session",
+     "text": "Session UTKVSK created for PCV Samudra Paheredar."
+    },
+    {
+     "at": "2026-09-28T13:11:24.684Z",
+     "by": "Demo Officer 2",
+     "type": "setup",
+     "text": "Scenario: Ship at Sea — SSEP."
+    },
+    {
+     "at": "2026-09-28T13:11:24.684Z",
+     "by": "Demo Officer 2",
+     "type": "setup",
+     "text": "Incident type: Damage Control."
+    },
+    {
+     "at": "2026-09-28T13:11:24.684Z",
+     "by": "Demo Officer 2",
+     "type": "setup",
+     "text": "Location: Engine Room."
+    },
+    {
+     "at": "2026-09-28T13:11:24.684Z",
+     "by": "Demo Officer 2",
+     "type": "setup",
+     "text": "Drill mode: Timed Evaluation."
+    },
+    {
+     "at": "2026-09-28T13:11:24.690Z",
+     "by": "Demo Officer 2",
+     "type": "status",
+     "text": "VR session started — alarm raised."
+    },
+    {
+     "at": "2026-09-28T13:11:24.695Z",
+     "by": "Admin",
+     "type": "env",
+     "text": "Water level → 45 cm"
+    },
+    {
+     "at": "2026-09-28T13:11:24.695Z",
+     "by": "Admin",
+     "type": "env",
+     "text": "Leak rate → 900 L/min"
+    },
+    {
+     "at": "2026-09-28T13:11:24.695Z",
+     "by": "Admin",
+     "type": "env",
+     "text": "Visibility → 8 m"
+    },
+    {
+     "at": "2026-09-28T13:11:24.695Z",
+     "by": "Admin",
+     "type": "cue",
+     "text": "Water ingress / spray intensity → 80%"
+    },
+    {
+     "at": "2026-09-28T13:11:24.699Z",
+     "by": "Admin",
+     "type": "message",
+     "text": "Message to all hands: Flooding in the engine room — SSEP close up at the engine-room flat."
+    },
+    {
+     "at": "2026-09-28T13:11:24.701Z",
+     "by": "VR",
+     "type": "vr",
+     "text": "Attack Party located the fractured cooling line"
+    },
+    {
+     "at": "2026-09-28T13:11:24.705Z",
+     "by": "VR",
+     "type": "vr",
+     "text": "Wooden wedges applied"
+    },
+    {
+     "at": "2026-09-28T13:11:24.709Z",
+     "by": "VR",
+     "type": "vr",
+     "text": "Portable pump started"
+    },
+    {
+     "at": "2026-09-28T13:11:24.712Z",
+     "by": "Admin",
+     "type": "inject",
+     "text": "INJECT — Second leak / pipe burst: A second pipe fractures in the compartment."
+    },
+    {
+     "at": "2026-09-28T13:11:24.716Z",
+     "by": "Admin",
+     "type": "inject",
+     "text": "INJECT — BA low-air warning: A BA wearer's low-pressure whistle sounds."
+    },
+    {
+     "at": "2026-09-28T13:11:24.718Z",
+     "by": "Admin",
+     "type": "env",
+     "text": "Water level → 70 cm"
+    },
+    {
+     "at": "2026-09-28T13:11:24.718Z",
+     "by": "Admin",
+     "type": "env",
+     "text": "Leak rate → 1400 L/min"
+    },
+    {
+     "at": "2026-09-28T13:11:24.722Z",
+     "by": "Admin",
+     "type": "message",
+     "text": "Message to party main.supporta: Support A — rig the second portable pump through the escape trunk."
+    },
+    {
+     "at": "2026-09-28T13:11:24.724Z",
+     "by": "Admin",
+     "type": "env",
+     "text": "Water level → 20 cm"
+    },
+    {
+     "at": "2026-09-28T13:11:24.724Z",
+     "by": "Admin",
+     "type": "env",
+     "text": "Leak rate → 150 L/min"
+    },
+    {
+     "at": "2026-09-28T13:11:24.823Z",
+     "by": "Demo Hand 07",
+     "type": "participant",
+     "text": "Demo Hand 07 marked their part complete."
+    },
+    {
+     "at": "2026-09-28T13:11:24.827Z",
+     "by": "Demo Hand 03",
+     "type": "participant",
+     "text": "Demo Hand 03 marked their part complete."
+    },
+    {
+     "at": "2026-09-28T13:11:24.874Z",
+     "by": "Demo Hand 10",
+     "type": "participant",
+     "text": "Demo Hand 10 marked their part complete."
+    },
+    {
+     "at": "2026-09-28T13:11:24.919Z",
+     "by": "Demo Hand 11",
+     "type": "participant",
+     "text": "Demo Hand 11 marked their part complete."
+    },
+    {
+     "at": "2026-09-28T13:11:24.973Z",
+     "by": "Demo Hand 12",
+     "type": "participant",
+     "text": "Demo Hand 12 marked their part complete."
+    },
+    {
+     "at": "2026-09-28T13:11:25.029Z",
+     "by": "Demo Hand 20",
+     "type": "participant",
+     "text": "Demo Hand 20 marked their part complete."
+    },
+    {
+     "at": "2026-09-28T13:11:25.074Z",
+     "by": "Demo Hand 15",
+     "type": "participant",
+     "text": "Demo Hand 15 marked their part complete."
+    },
+    {
+     "at": "2026-09-28T13:11:25.080Z",
+     "by": "Demo Officer 2",
+     "type": "status",
+     "text": "Session closed."
+    }
+   ],
+   "vrEvents": 3,
+   "rev": 24,
+   "updatedAt": "2026-09-28T13:11:25.080Z",
+   "vrLastSeen": "2026-09-28T13:11:24.709Z",
+   "closedAt": "2026-09-28T13:11:25.080Z"
+  },
+  {
+   "id": "4801cd93815ec994",
+   "code": "6A647Z",
+   "vrKey": "6e251c93e6b3adda",
+   "status": "closed",
+   "createdAt": "2026-09-28T13:11:24.385Z",
+   "createdBy": "e844407146f14f29",
+   "officerId": "e844407146f14f29",
+   "step": 9,
+   "shipId": "opv",
+   "orgId": "HEP",
+   "incidentType": "FF",
+   "compartmentId": "galley",
+   "modeId": "practice",
+   "plan": {
+    "id": "OPV_PCV::HEP",
+    "head": {
+     "title": "OOD",
+     "spec": "Officer of the Day",
+     "slots": [
+      {
+       "trade": "OFFR"
+      }
+     ]
+    },
+    "groups": [
+     {
+      "id": "main",
+      "title": "Main Group",
+      "spec": "In-Charge",
+      "slots": [
+       {
+        "trade": "IC"
+       }
+      ],
+      "parties": [
+       {
+        "id": "attack",
+        "title": "Attack Party / Search Party",
+        "spec": "02 Jr. Nvks",
+        "mandatory": true,
+        "breakdown": "ME – 01, P – 01",
+        "slots": [
+         {
+          "trade": "ME"
+         },
+         {
+          "trade": "P"
+         }
+        ]
+       },
+       {
+        "id": "attackba",
+        "title": "Attack 'BA' / Repair Party",
+        "spec": "02 Jr Nvks",
+        "mandatory": true,
+        "breakdown": "QA/RP – 02",
+        "slots": [
+         {
+          "trade": "QARP"
+         },
+         {
+          "trade": "QARP"
+         }
+        ]
+       },
+       {
+        "id": "bacontroller",
+        "title": "BA Controller",
+        "spec": "01 Sailor",
+        "breakdown": "",
+        "handwritten": true,
+        "slots": [
+         {
+          "trade": "SAILOR"
+         }
+        ]
+       },
+       {
+        "id": "supporta",
+        "title": "Support 'A' / Pumping & De-Flooding Party",
+        "spec": "03 Jr Nvks",
+        "breakdown": "ME – 01, QA/RP – 02",
+        "slots": [
+         {
+          "trade": "ME"
+         },
+         {
+          "trade": "QARP"
+         },
+         {
+          "trade": "QARP"
+         }
+        ]
+       },
+       {
+        "id": "supportb",
+        "title": "Support 'B' / Shoring Party",
+        "spec": "03 Jr Nvks",
+        "breakdown": "",
+        "slots": [
+         {
+          "trade": "JRNVK"
+         },
+         {
+          "trade": "JRNVK"
+         },
+         {
+          "trade": "JRNVK"
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "id": "containment",
+      "title": "Containment Group",
+      "spec": "02 S&S Sailors",
+      "slots": [
+       {
+        "trade": "SS"
+       },
+       {
+        "trade": "SS"
+       }
+      ],
+      "parties": []
+     },
+     {
+      "id": "specialist",
+      "title": "Specialist Group",
+      "spec": "E/R SS · E/L SS · Communicator",
+      "slots": [
+       {
+        "trade": "ERSS"
+       },
+       {
+        "trade": "ELSS"
+       },
+       {
+        "trade": "COMM"
+       }
+      ],
+      "parties": []
+     }
+    ],
+    "notes": [
+     "Attack Party and Attack 'BA' are to regroup and provide assistance to Support 'A'."
+    ],
+    "version": 1,
+    "updatedAt": "2026-09-28T12:47:06.811Z",
+    "updatedBy": "system"
+   },
+   "severity": "minor",
+   "assignments": {
+    "head#0": "e844407146f14f29",
+    "main#0": "81e83d5ee96ff976",
+    "main.attack#0": "4be2a827c7601d57",
+    "main.attack#1": "17537e9d5f09819f",
+    "main.attackba#0": "f2dcb9e3157baa1c",
+    "main.attackba#1": "bafa0ff0d948d354",
+    "main.bacontroller#0": "47ea43a4c24f650f",
+    "main.supporta#0": "eb90be3c583dc9fd",
+    "main.supporta#1": "5b5932c721f02bac",
+    "main.supporta#2": "5e7d9e41689ac894",
+    "main.supportb#0": "9ed088f7cc9c9155",
+    "main.supportb#1": "5ade31be26f08f84",
+    "main.supportb#2": "f46d30af36eb2de1",
+    "containment#0": "5d3a8647433922a1",
+    "containment#1": "0098e9939ddc5a57",
+    "specialist#0": "5740eb91982a8b53",
+    "specialist#1": "7fcbe0aa48474183",
+    "specialist#2": "0cfcd06e6b4be44b"
+   },
+   "people": {
+    "e844407146f14f29": {
+     "name": "Demo Officer 1",
+     "rank": "Lt",
+     "trade": "OFFR",
+     "login": "demo.officer1"
+    },
+    "81e83d5ee96ff976": {
+     "name": "Demo Hand 01",
+     "rank": "Nvk",
+     "trade": "IC",
+     "login": "demo01"
+    },
+    "4be2a827c7601d57": {
+     "name": "Demo Hand 02",
+     "rank": "Nvk",
+     "trade": "ME",
+     "login": "demo02"
+    },
+    "17537e9d5f09819f": {
+     "name": "Demo Hand 03",
+     "rank": "P/Nvk",
+     "trade": "P",
+     "login": "demo03"
+    },
+    "f2dcb9e3157baa1c": {
+     "name": "Demo Hand 04",
+     "rank": "L/Nvk",
+     "trade": "QARP",
+     "login": "demo04"
+    },
+    "bafa0ff0d948d354": {
+     "name": "Demo Hand 05",
+     "rank": "Yantrik",
+     "trade": "QARP",
+     "login": "demo05"
+    },
+    "47ea43a4c24f650f": {
+     "name": "Demo Hand 06",
+     "rank": "P/Yantrik",
+     "trade": "SAILOR",
+     "login": "demo06"
+    },
+    "eb90be3c583dc9fd": {
+     "name": "Demo Hand 07",
+     "rank": "Nvk",
+     "trade": "ME",
+     "login": "demo07"
+    },
+    "5b5932c721f02bac": {
+     "name": "Demo Hand 08",
+     "rank": "Nvk",
+     "trade": "QARP",
+     "login": "demo08"
+    },
+    "5e7d9e41689ac894": {
+     "name": "Demo Hand 09",
+     "rank": "P/Nvk",
+     "trade": "QARP",
+     "login": "demo09"
+    },
+    "9ed088f7cc9c9155": {
+     "name": "Demo Hand 10",
+     "rank": "L/Nvk",
+     "trade": "JRNVK",
+     "login": "demo10"
+    },
+    "5ade31be26f08f84": {
+     "name": "Demo Hand 11",
+     "rank": "Yantrik",
+     "trade": "JRNVK",
+     "login": "demo11"
+    },
+    "f46d30af36eb2de1": {
+     "name": "Demo Hand 12",
+     "rank": "P/Yantrik",
+     "trade": "JRNVK",
+     "login": "demo12"
+    },
+    "5d3a8647433922a1": {
+     "name": "Demo Hand 13",
+     "rank": "Nvk",
+     "trade": "SS",
+     "login": "demo13"
+    },
+    "0098e9939ddc5a57": {
+     "name": "Demo Hand 14",
+     "rank": "Nvk",
+     "trade": "SS",
+     "login": "demo14"
+    },
+    "5740eb91982a8b53": {
+     "name": "Demo Hand 15",
+     "rank": "P/Nvk",
+     "trade": "ERSS",
+     "login": "demo15"
+    },
+    "7fcbe0aa48474183": {
+     "name": "Demo Hand 16",
+     "rank": "L/Nvk",
+     "trade": "ELSS",
+     "login": "demo16"
+    },
+    "0cfcd06e6b4be44b": {
+     "name": "Demo Hand 17",
+     "rank": "Yantrik",
+     "trade": "COMM",
+     "login": "demo17"
+    }
+   },
+   "partyTimings": {
+    "main.attack": {
+     "remarks": "Seat of fire at the galley range hood. First attack with 2 × CO2; flames knocked down within 3 minutes.",
+     "remarksBy": "Demo Hand 02",
+     "remarksAt": "2026-09-28T13:11:24.484Z",
+     "in": "18:02",
+     "out": "18:23"
+    },
+    "main.attackba": {
+     "remarks": "BA team of two entered via the starboard door; hood ducting checked with thermal camera — no extension.",
+     "remarksBy": "Demo Hand 04",
+     "remarksAt": "2026-09-28T13:11:24.582Z",
+     "in": "18:03",
+     "out": "18:22"
+    }
+   },
+   "personRemarks": {
+    "4be2a827c7601d57": {
+     "text": "Used 2 × CO2 extinguishers; visibility poor near the deckhead.",
+     "at": "2026-09-28T13:11:24.484Z"
+    },
+    "17537e9d5f09819f": {
+     "text": "Carried the thermal imaging camera; reported hot spots to the BA controller.",
+     "at": "2026-09-28T13:11:24.535Z"
+    },
+    "f2dcb9e3157baa1c": {
+     "text": "Ran out 2 lengths of 45 mm hose; nozzle on spray.",
+     "at": "2026-09-28T13:11:24.582Z"
+    },
+    "bafa0ff0d948d354": {
+     "text": "Checked the boundary every 5 minutes and reported to containment.",
+     "at": "2026-09-28T13:11:24.628Z"
+    }
+   },
+   "completed": {
+    "4be2a827c7601d57": "2026-09-28T13:11:24.484Z",
+    "17537e9d5f09819f": "2026-09-28T13:11:24.535Z",
+    "f2dcb9e3157baa1c": "2026-09-28T13:11:24.582Z",
+    "bafa0ff0d948d354": "2026-09-28T13:11:24.628Z"
+   },
+   "incident": {
+    "date": "2026-09-28",
+    "start": "18:01",
+    "end": "18:23",
+    "ood": "Demo Officer 1",
+    "kind": "Exercise",
+    "remarks": "Minor fire at the galley range reported by the duty cook. Attack Party and Attack 'BA' closed up within 2 minutes and extinguished the fire with 2 × CO2.\nGalley ventilated and declared safe. Range hood filters to be cleaned and inspected before next use.\nNo casualties.",
+    "assessedAt": "18:05"
+   },
+   "live": {
+    "env": {
+     "fireIntensity": 4,
+     "smoke": 40,
+     "temperature": 80,
+     "co2": 0.5,
+     "o2": 20.9,
+     "co": 50,
+     "visibility": 10,
+     "waterLevel": 0,
+     "leakRate": 0,
+     "firemain": 7
+    },
+    "cues": {
+     "flames": {
+      "on": true,
+      "intensity": 60
+     },
+     "smokeVis": {
+      "on": true,
+      "intensity": 50
+     },
+     "waterIngress": {
+      "on": true,
+      "intensity": 60
+     },
+     "emergLight": {
+      "on": false,
+      "intensity": 40
+     },
+     "strobe": {
+      "on": true,
+      "intensity": 70
+     },
+     "generalAlarm": {
+      "on": true,
+      "intensity": 80
+     },
+     "pipe": {
+      "on": true,
+      "intensity": 80
+     },
+     "crackle": {
+      "on": true,
+      "intensity": 50
+     },
+     "waterRush": {
+      "on": true,
+      "intensity": 60
+     },
+     "radio": {
+      "on": false,
+      "intensity": 40
+     },
+     "rumble": {
+      "on": true,
+      "intensity": 50
+     },
+     "heatVest": {
+      "on": false,
+      "intensity": 40
+     },
+     "floorVib": {
+      "on": false,
+      "intensity": 30
+     },
+     "radiantHeat": {
+      "on": false,
+      "intensity": 30
+     },
+     "smokeScent": {
+      "on": false,
+      "intensity": 30
+     }
+    },
+    "startedAt": "2026-09-28T13:11:24.405Z",
+    "pausedAt": null,
+    "elapsedMs": 230
+   },
+   "messages": [],
+   "timeline": [
+    {
+     "at": "2026-09-28T13:11:24.385Z",
+     "by": "Demo Officer 1",
+     "type": "session",
+     "text": "Session 6A647Z created for OPV Vigraha."
+    },
+    {
+     "at": "2026-09-28T13:11:24.390Z",
+     "by": "Demo Officer 1",
+     "type": "setup",
+     "text": "Scenario: Ship in Harbour — HEP."
+    },
+    {
+     "at": "2026-09-28T13:11:24.390Z",
+     "by": "Demo Officer 1",
+     "type": "setup",
+     "text": "Incident type: Firefighting."
+    },
+    {
+     "at": "2026-09-28T13:11:24.390Z",
+     "by": "Demo Officer 1",
+     "type": "setup",
+     "text": "Location: Galley."
+    },
+    {
+     "at": "2026-09-28T13:11:24.405Z",
+     "by": "Demo Officer 1",
+     "type": "status",
+     "text": "VR session started — alarm raised."
+    },
+    {
+     "at": "2026-09-28T13:11:24.413Z",
+     "by": "VR",
+     "type": "vr",
+     "text": "Attack Party entered the galley"
+    },
+    {
+     "at": "2026-09-28T13:11:24.419Z",
+     "by": "VR",
+     "type": "vr",
+     "text": "CO2 extinguisher discharged"
+    },
+    {
+     "at": "2026-09-28T13:11:24.424Z",
+     "by": "VR",
+     "type": "vr",
+     "text": "CO2 extinguisher discharged"
+    },
+    {
+     "at": "2026-09-28T13:11:24.429Z",
+     "by": "VR",
+     "type": "vr",
+     "text": "Fire reported out"
+    },
+    {
+     "at": "2026-09-28T13:11:24.484Z",
+     "by": "Demo Hand 02",
+     "type": "participant",
+     "text": "Demo Hand 02 marked their part complete."
+    },
+    {
+     "at": "2026-09-28T13:11:24.535Z",
+     "by": "Demo Hand 03",
+     "type": "participant",
+     "text": "Demo Hand 03 marked their part complete."
+    },
+    {
+     "at": "2026-09-28T13:11:24.582Z",
+     "by": "Demo Hand 04",
+     "type": "participant",
+     "text": "Demo Hand 04 marked their part complete."
+    },
+    {
+     "at": "2026-09-28T13:11:24.628Z",
+     "by": "Demo Hand 05",
+     "type": "participant",
+     "text": "Demo Hand 05 marked their part complete."
+    },
+    {
+     "at": "2026-09-28T13:11:24.632Z",
+     "by": "Demo Officer 1",
+     "type": "assessment",
+     "text": "Attack Party report — MINOR fire."
+    },
+    {
+     "at": "2026-09-28T13:11:24.635Z",
+     "by": "Demo Officer 1",
+     "type": "status",
+     "text": "Session closed."
+    }
+   ],
+   "vrEvents": 4,
+   "rev": 14,
+   "updatedAt": "2026-09-28T13:11:24.635Z",
+   "vrLastSeen": "2026-09-28T13:11:24.429Z",
+   "closedAt": "2026-09-28T13:11:24.635Z"
+  }
+ ],
+ "config": {
+  "ships": [
+   {
+    "id": "opv",
+    "name": "Vigraha",
+    "klass": "OPV",
+    "subtitle": "Offshore Patrol Vessel",
+    "status": "ready",
+    "orgSet": "OPV_PCV",
+    "orgs": [
+     "HEP",
+     "SSEP"
+    ],
+    "compartments": [
+     {
+      "id": "engine-room",
+      "name": "Engine Room"
+     },
+     {
+      "id": "da-compt",
+      "name": "DA Compartment"
+     },
+     {
+      "id": "galley",
+      "name": "Galley"
+     },
+     {
+      "id": "paint-store",
+      "name": "Paint Store"
+     },
+     {
+      "id": "jr-rating-mess",
+      "name": "Junior Rating Mess"
+     },
+     {
+      "id": "asp",
+      "name": "ASP"
+     }
+    ]
+   },
+   {
+    "id": "pcv",
+    "name": "Samudra Paheredar",
+    "klass": "PCV",
+    "subtitle": "Pollution Control Vessel",
+    "status": "shared",
+    "orgSet": "OPV_PCV",
+    "orgs": [
+     "HEP",
+     "SSEP"
+    ],
+    "compartments": [
+     {
+      "id": "engine-room",
+      "name": "Engine Room"
+     },
+     {
+      "id": "da-compt",
+      "name": "DA Compartment"
+     },
+     {
+      "id": "galley",
+      "name": "Galley"
+     },
+     {
+      "id": "paint-store",
+      "name": "Paint Store"
+     },
+     {
+      "id": "jr-rating-mess",
+      "name": "Junior Rating Mess"
+     },
+     {
+      "id": "asp",
+      "name": "ASP"
+     }
+    ]
+   },
+   {
+    "id": "fpv",
+    "name": "FPV",
+    "klass": "FPV",
+    "subtitle": "Fast Patrol Vessel",
+    "status": "pending",
+    "orgSet": null,
+    "orgs": [],
+    "compartments": [
+     {
+      "id": "engine-room",
+      "name": "Engine Room"
+     },
+     {
+      "id": "jr-rating-mess-1",
+      "name": "Junior Rating Mess",
+      "flag": "listed twice on source sheet — confirm Fwd / Aft"
+     },
+     {
+      "id": "wj-compt",
+      "name": "W/J Compartment"
+     },
+     {
+      "id": "jr-rating-mess-2",
+      "name": "Junior Rating Mess",
+      "flag": "listed twice on source sheet — confirm Fwd / Aft"
+     },
+     {
+      "id": "paint-store",
+      "name": "Paint Store"
+     },
+     {
+      "id": "galley",
+      "name": "Galley"
+     }
+    ]
+   },
+   {
+    "id": "ib",
+    "name": "Interceptor Boat",
+    "klass": "IB",
+    "subtitle": "Interceptor Boat",
+    "status": "pending",
+    "orgSet": null,
+    "orgs": [],
+    "compartments": [
+     {
+      "id": "engine-room",
+      "name": "Engine Room"
+     },
+     {
+      "id": "jr-sailor-rating-mess",
+      "name": "Jr. Sailor Rating Mess"
+     }
+    ]
+   }
+  ],
+  "scenarios": [
+   {
+    "id": "HEP",
+    "scenario": "Ship in Harbour",
+    "name": "Harbour Emergency Party",
+    "abbr": "HEP",
+    "when": "Alongside",
+    "detail": "First response while secured alongside. OOD is the assigning authority."
+   },
+   {
+    "id": "SSEP",
+    "scenario": "Ship at Sea",
+    "name": "Standing Sea Emergency Party",
+    "abbr": "SSEP",
+    "when": "NBCD State II",
+    "detail": "The standing watch party that closes up first at sea. Smaller: no Containment Group, no Support ‘B’."
+   }
+  ],
+  "incidentTypes": [
+   {
+    "id": "FF",
+    "name": "Firefighting",
+    "noun": "fire",
+    "icon": "🧯",
+    "detail": "Fire on board — any compartment."
+   },
+   {
+    "id": "DC",
+    "name": "Damage Control",
+    "noun": "damage",
+    "icon": "🛠️",
+    "detail": "Flooding, hull or structural damage."
+   }
+  ],
+  "trades": {
+   "OFFR": {
+    "code": "OOD",
+    "label": "Officer of the Day"
+   },
+   "IC": {
+    "code": "i/c",
+    "label": "In-Charge"
+   },
+   "SS": {
+    "code": "S&S",
+    "label": "Stores & Supply Sailor"
+   },
+   "ERSS": {
+    "code": "E/R SS",
+    "label": "Engine Room Senior Sailor"
+   },
+   "ELSS": {
+    "code": "E/L SS",
+    "label": "Electrical Senior Sailor"
+   },
+   "COMM": {
+    "code": "COMM",
+    "label": "Communicator"
+   },
+   "ME": {
+    "code": "ME",
+    "label": "ME"
+   },
+   "P": {
+    "code": "P",
+    "label": "P"
+   },
+   "QARP": {
+    "code": "QA/RP",
+    "label": "QA/RP"
+   },
+   "JRNVK": {
+    "code": "Jr Nvk",
+    "label": "Junior Navik"
+   },
+   "SAILOR": {
+    "code": "Sailor",
+    "label": "Sailor (any)"
+   }
+  },
+  "unverifiedTrades": [
+   "ME",
+   "P",
+   "QA/RP"
+  ],
+  "statusMeta": {
+   "ready": {
+    "text": "HEP · SSEP defined",
+    "tone": "ok"
+   },
+   "shared": {
+    "text": "Shares the OPV organisation sheets",
+    "tone": "warn"
+   },
+   "pending": {
+    "text": "Organisation sheets not yet supplied",
+    "tone": "off"
+   }
+  },
+  "envParams": [
+   {
+    "id": "fireIntensity",
+    "name": "Fire intensity",
+    "unit": "/10",
+    "min": 0,
+    "max": 10,
+    "step": 1,
+    "value": 4,
+    "warn": 6,
+    "danger": 8,
+    "appliesTo": "FF"
+   },
+   {
+    "id": "smoke",
+    "name": "Smoke density",
+    "unit": "%",
+    "min": 0,
+    "max": 100,
+    "step": 5,
+    "value": 40,
+    "warn": 60,
+    "danger": 85,
+    "appliesTo": "FF"
+   },
+   {
+    "id": "temperature",
+    "name": "Compartment temp.",
+    "unit": "°C",
+    "min": 20,
+    "max": 600,
+    "step": 10,
+    "value": 80,
+    "warn": 150,
+    "danger": 300,
+    "appliesTo": "FF"
+   },
+   {
+    "id": "co2",
+    "name": "CO₂ concentration",
+    "unit": "%",
+    "min": 0,
+    "max": 50,
+    "step": 0.5,
+    "value": 0.5,
+    "warn": 2,
+    "danger": 4,
+    "appliesTo": "BOTH"
+   },
+   {
+    "id": "o2",
+    "name": "Oxygen",
+    "unit": "%",
+    "min": 0,
+    "max": 21,
+    "step": 0.1,
+    "value": 20.9,
+    "warn": 19.5,
+    "danger": 16,
+    "appliesTo": "BOTH",
+    "lowIsBad": true
+   },
+   {
+    "id": "co",
+    "name": "Carbon monoxide",
+    "unit": "ppm",
+    "min": 0,
+    "max": 2000,
+    "step": 10,
+    "value": 50,
+    "warn": 200,
+    "danger": 1200,
+    "appliesTo": "FF"
+   },
+   {
+    "id": "visibility",
+    "name": "Visibility",
+    "unit": "m",
+    "min": 0,
+    "max": 30,
+    "step": 1,
+    "value": 10,
+    "warn": 5,
+    "danger": 2,
+    "appliesTo": "BOTH",
+    "lowIsBad": true
+   },
+   {
+    "id": "waterLevel",
+    "name": "Water level",
+    "unit": "cm",
+    "min": 0,
+    "max": 200,
+    "step": 5,
+    "value": 0,
+    "warn": 30,
+    "danger": 80,
+    "appliesTo": "DC"
+   },
+   {
+    "id": "leakRate",
+    "name": "Leak rate",
+    "unit": "L/min",
+    "min": 0,
+    "max": 3000,
+    "step": 50,
+    "value": 0,
+    "warn": 500,
+    "danger": 1500,
+    "appliesTo": "DC"
+   },
+   {
+    "id": "firemain",
+    "name": "Fire-main pressure",
+    "unit": "bar",
+    "min": 0,
+    "max": 10,
+    "step": 0.5,
+    "value": 7,
+    "warn": 5,
+    "danger": 3,
+    "appliesTo": "BOTH",
+    "lowIsBad": true
+   }
+  ],
+  "injects": [
+   {
+    "id": "reignition",
+    "name": "Re-ignition",
+    "appliesTo": "FF",
+    "description": "Fire re-ignites after being reported out.",
+    "effect": {
+     "add": {
+      "fireIntensity": 3,
+      "temperature": 60
+     }
+    }
+   },
+   {
+    "id": "spread",
+    "name": "Fire spreads to adjacent compt",
+    "appliesTo": "FF",
+    "description": "Boundary breached — fire in the adjacent compartment.",
+    "effect": {
+     "add": {
+      "fireIntensity": 2,
+      "smoke": 20
+     },
+     "severity": "major"
+    }
+   },
+   {
+    "id": "flashover",
+    "name": "Flashover risk",
+    "appliesTo": "FF",
+    "description": "Rapid temperature rise at deckhead level.",
+    "effect": {
+     "add": {
+      "temperature": 200
+     }
+    }
+   },
+   {
+    "id": "secondleak",
+    "name": "Second leak / pipe burst",
+    "appliesTo": "DC",
+    "description": "A second pipe fractures in the compartment.",
+    "effect": {
+     "add": {
+      "leakRate": 800
+     },
+     "severity": "major"
+    }
+   },
+   {
+    "id": "shoringfail",
+    "name": "Shoring failure",
+    "appliesTo": "DC",
+    "description": "A shore slips; bulkhead deflection increases.",
+    "effect": {
+     "add": {
+      "waterLevel": 20,
+      "leakRate": 300
+     }
+    }
+   },
+   {
+    "id": "casualty",
+    "name": "Casualty",
+    "appliesTo": "BOTH",
+    "description": "Unconscious sailor found in the compartment.",
+    "effect": {}
+   },
+   {
+    "id": "hoseburst",
+    "name": "Hose burst / low pressure",
+    "appliesTo": "BOTH",
+    "description": "Hose bursts; fire-main pressure drops.",
+    "effect": {
+     "set": {
+      "firemain": 2
+     }
+    }
+   },
+   {
+    "id": "balowair",
+    "name": "BA low-air warning",
+    "appliesTo": "BOTH",
+    "description": "A BA wearer's low-pressure whistle sounds.",
+    "effect": {}
+   },
+   {
+    "id": "powerfail",
+    "name": "Power / lighting failure",
+    "appliesTo": "BOTH",
+    "description": "Compartment lighting fails; emergency lighting only.",
+    "effect": {
+     "set": {
+      "visibility": 2
+     }
+    }
+   },
+   {
+    "id": "commsfail",
+    "name": "Communications failure",
+    "appliesTo": "BOTH",
+    "description": "Loss of comms with the Attack Party.",
+    "effect": {}
+   },
+   {
+    "id": "electrical",
+    "name": "Electrical short / arcing",
+    "appliesTo": "BOTH",
+    "description": "Arcing from a damaged cable run.",
+    "effect": {}
+   }
+  ],
+  "modes": [
+   {
+    "id": "guided",
+    "name": "Guided Training",
+    "difficulty": "Basic",
+    "hints": true,
+    "timeLimitMin": 0,
+    "scored": false,
+    "allowPause": true,
+    "announced": true,
+    "description": "Step-by-step prompts in the headset. For first-time hands and new joiners."
+   },
+   {
+    "id": "practice",
+    "name": "Practice Drill",
+    "difficulty": "Intermediate",
+    "hints": false,
+    "timeLimitMin": 0,
+    "scored": false,
+    "allowPause": true,
+    "announced": true,
+    "description": "Full drill without prompts; the moderator can pause and coach."
+   },
+   {
+    "id": "timed",
+    "name": "Timed Evaluation",
+    "difficulty": "Advanced",
+    "hints": false,
+    "timeLimitMin": 20,
+    "scored": true,
+    "allowPause": false,
+    "announced": true,
+    "description": "Scored against time limits and checkpoints. No pausing."
+   },
+   {
+    "id": "surprise",
+    "name": "Surprise Drill",
+    "difficulty": "Advanced",
+    "hints": false,
+    "timeLimitMin": 0,
+    "scored": true,
+    "allowPause": false,
+    "announced": false,
+    "description": "Unannounced; location is revealed only when the alarm is raised."
+   },
+   {
+    "id": "demo",
+    "name": "Demonstration",
+    "difficulty": "Basic",
+    "hints": true,
+    "timeLimitMin": 0,
+    "scored": false,
+    "allowPause": true,
+    "announced": true,
+    "description": "Moderator-led walkthrough; participants observe."
+   }
+  ],
+  "cues": [
+   {
+    "id": "flames",
+    "channel": "Visual",
+    "name": "Flames",
+    "appliesTo": "FF",
+    "hardware": "",
+    "enabled": true,
+    "intensity": 60
+   },
+   {
+    "id": "smokeVis",
+    "channel": "Visual",
+    "name": "Smoke",
+    "appliesTo": "FF",
+    "hardware": "",
+    "enabled": true,
+    "intensity": 50
+   },
+   {
+    "id": "waterIngress",
+    "channel": "Visual",
+    "name": "Water ingress / spray",
+    "appliesTo": "DC",
+    "hardware": "",
+    "enabled": true,
+    "intensity": 60
+   },
+   {
+    "id": "emergLight",
+    "channel": "Visual",
+    "name": "Emergency lighting",
+    "appliesTo": "BOTH",
+    "hardware": "",
+    "enabled": false,
+    "intensity": 40
+   },
+   {
+    "id": "strobe",
+    "channel": "Visual",
+    "name": "Alarm strobe",
+    "appliesTo": "BOTH",
+    "hardware": "",
+    "enabled": true,
+    "intensity": 70
+   },
+   {
+    "id": "generalAlarm",
+    "channel": "Audio",
+    "name": "General alarm",
+    "appliesTo": "BOTH",
+    "hardware": "",
+    "enabled": true,
+    "intensity": 80
+   },
+   {
+    "id": "pipe",
+    "channel": "Audio",
+    "name": "Pipe — \"Fire, fire, fire…\"",
+    "appliesTo": "FF",
+    "hardware": "",
+    "enabled": true,
+    "intensity": 80
+   },
+   {
+    "id": "crackle",
+    "channel": "Audio",
+    "name": "Fire crackle",
+    "appliesTo": "FF",
+    "hardware": "",
+    "enabled": true,
+    "intensity": 50
+   },
+   {
+    "id": "waterRush",
+    "channel": "Audio",
+    "name": "Rushing water",
+    "appliesTo": "DC",
+    "hardware": "",
+    "enabled": true,
+    "intensity": 60
+   },
+   {
+    "id": "radio",
+    "channel": "Audio",
+    "name": "Radio chatter",
+    "appliesTo": "BOTH",
+    "hardware": "",
+    "enabled": false,
+    "intensity": 40
+   },
+   {
+    "id": "rumble",
+    "channel": "Haptic",
+    "name": "Controller rumble (hose / tools)",
+    "appliesTo": "BOTH",
+    "hardware": "VR controllers",
+    "enabled": true,
+    "intensity": 50
+   },
+   {
+    "id": "heatVest",
+    "channel": "Haptic",
+    "name": "Heat vest",
+    "appliesTo": "FF",
+    "hardware": "Heat vest",
+    "enabled": false,
+    "intensity": 40
+   },
+   {
+    "id": "floorVib",
+    "channel": "Haptic",
+    "name": "Deck vibration",
+    "appliesTo": "BOTH",
+    "hardware": "Haptic floor",
+    "enabled": false,
+    "intensity": 30
+   },
+   {
+    "id": "radiantHeat",
+    "channel": "Thermal",
+    "name": "Radiant heat panel",
+    "appliesTo": "FF",
+    "hardware": "Heat panel",
+    "enabled": false,
+    "intensity": 30
+   },
+   {
+    "id": "smokeScent",
+    "channel": "Olfactory",
+    "name": "Smoke scent",
+    "appliesTo": "FF",
+    "hardware": "Scent emitter",
+    "enabled": false,
+    "intensity": 30
+   }
+  ],
+  "feedback": [
+   {
+    "id": "hud",
+    "name": "Headset prompts (HUD)",
+    "enabled": true,
+    "description": "On-screen hints in the headset; follows the drill mode."
+   },
+   {
+    "id": "baGauge",
+    "name": "BA air gauge warnings",
+    "enabled": true,
+    "description": "Low-air alerts for BA wearers."
+   },
+   {
+    "id": "checkpoint",
+    "name": "Checkpoint timing",
+    "enabled": true,
+    "description": "Times alarm-to-close-up, first attack, fire out / leak stopped."
+   },
+   {
+    "id": "scoring",
+    "name": "Performance scoring",
+    "enabled": false,
+    "description": "Score per party against the drill mode time limits."
+   },
+   {
+    "id": "whisper",
+    "name": "Moderator messages",
+    "enabled": true,
+    "description": "Moderator can message all hands, a party or one person."
+   },
+   {
+    "id": "debrief",
+    "name": "After-action debrief",
+    "enabled": true,
+    "description": "Timeline of events and remarks in the session report."
+   }
+  ],
+  "settings": {
+   "allowSelfRegistration": true,
+   "onlyDutyOfficerCreatesSessions": true
+  }
+ },
+ "plans": {
+  "OPV_PCV::HEP": {
+   "id": "OPV_PCV::HEP",
+   "head": {
+    "title": "OOD",
+    "spec": "Officer of the Day",
+    "slots": [
+     {
+      "trade": "OFFR"
+     }
+    ]
+   },
+   "groups": [
+    {
+     "id": "main",
+     "title": "Main Group",
+     "spec": "In-Charge",
+     "slots": [
+      {
+       "trade": "IC"
+      }
+     ],
+     "parties": [
+      {
+       "id": "attack",
+       "title": "Attack Party / Search Party",
+       "spec": "02 Jr. Nvks",
+       "mandatory": true,
+       "breakdown": "ME – 01, P – 01",
+       "slots": [
+        {
+         "trade": "ME"
+        },
+        {
+         "trade": "P"
+        }
+       ]
+      },
+      {
+       "id": "attackba",
+       "title": "Attack 'BA' / Repair Party",
+       "spec": "02 Jr Nvks",
+       "mandatory": true,
+       "breakdown": "QA/RP – 02",
+       "slots": [
+        {
+         "trade": "QARP"
+        },
+        {
+         "trade": "QARP"
+        }
+       ]
+      },
+      {
+       "id": "bacontroller",
+       "title": "BA Controller",
+       "spec": "01 Sailor",
+       "breakdown": "",
+       "handwritten": true,
+       "slots": [
+        {
+         "trade": "SAILOR"
+        }
+       ]
+      },
+      {
+       "id": "supporta",
+       "title": "Support 'A' / Pumping & De-Flooding Party",
+       "spec": "03 Jr Nvks",
+       "breakdown": "ME – 01, QA/RP – 02",
+       "slots": [
+        {
+         "trade": "ME"
+        },
+        {
+         "trade": "QARP"
+        },
+        {
+         "trade": "QARP"
+        }
+       ]
+      },
+      {
+       "id": "supportb",
+       "title": "Support 'B' / Shoring Party",
+       "spec": "03 Jr Nvks",
+       "breakdown": "",
+       "slots": [
+        {
+         "trade": "JRNVK"
+        },
+        {
+         "trade": "JRNVK"
+        },
+        {
+         "trade": "JRNVK"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "containment",
+     "title": "Containment Group",
+     "spec": "02 S&S Sailors",
+     "slots": [
+      {
+       "trade": "SS"
+      },
+      {
+       "trade": "SS"
+      }
+     ],
+     "parties": []
+    },
+    {
+     "id": "specialist",
+     "title": "Specialist Group",
+     "spec": "E/R SS · E/L SS · Communicator",
+     "slots": [
+      {
+       "trade": "ERSS"
+      },
+      {
+       "trade": "ELSS"
+      },
+      {
+       "trade": "COMM"
+      }
+     ],
+     "parties": []
+    }
+   ],
+   "notes": [
+    "Attack Party and Attack 'BA' are to regroup and provide assistance to Support 'A'."
+   ],
+   "version": 1,
+   "updatedAt": "2026-09-28T12:47:06.811Z",
+   "updatedBy": "system"
+  },
+  "OPV_PCV::SSEP": {
+   "id": "OPV_PCV::SSEP",
+   "head": {
+    "title": "SSEP",
+    "spec": "Standing Sea Emergency Party",
+    "slots": []
+   },
+   "groups": [
+    {
+     "id": "main",
+     "title": "Main Group",
+     "spec": "In-Charge",
+     "slots": [
+      {
+       "trade": "IC"
+      }
+     ],
+     "parties": [
+      {
+       "id": "attack",
+       "title": "Attack Party / Search Party",
+       "spec": "02 Jn Nvks",
+       "mandatory": true,
+       "breakdown": "ME – 01, P – 01",
+       "slots": [
+        {
+         "trade": "ME"
+        },
+        {
+         "trade": "P"
+        }
+       ]
+      },
+      {
+       "id": "attackba",
+       "title": "Attack 'BA' / Repair Party",
+       "spec": "02 Jn Nvks",
+       "mandatory": true,
+       "breakdown": "",
+       "slots": [
+        {
+         "trade": "JRNVK"
+        },
+        {
+         "trade": "JRNVK"
+        }
+       ]
+      },
+      {
+       "id": "bacontroller",
+       "title": "BA Controller",
+       "spec": "01 Nvk",
+       "breakdown": "",
+       "slots": [
+        {
+         "trade": "JRNVK"
+        }
+       ]
+      },
+      {
+       "id": "supporta",
+       "title": "Support 'A' / Pumping & De-Flooding Party",
+       "spec": "03 Jn Nvks",
+       "breakdown": "ME – 01, QA/RP – 02",
+       "slots": [
+        {
+         "trade": "ME"
+        },
+        {
+         "trade": "QARP"
+        },
+        {
+         "trade": "QARP"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "specialist",
+     "title": "Specialist Group",
+     "spec": "E/R Senior Sailor · E/L Senior Sailor",
+     "slots": [
+      {
+       "trade": "ERSS"
+      },
+      {
+       "trade": "ELSS"
+      }
+     ],
+     "parties": []
+    }
+   ],
+   "notes": [
+    "Attack Party is to provide assistance to Support 'A'.",
+    "If the SSEP is unable to cope with a fire — through lack of personnel or shortage of material resources — it is important that the Executive Officer elevates NBCD State II to State I Condition 'Z', followed by Emergency Stations, in good time. This gets the right people to the right place quickly and brings the ship's DC Parties to State I."
+   ],
+   "version": 1,
+   "updatedAt": "2026-09-28T12:47:06.811Z",
+   "updatedBy": "system"
+  }
+ }
+}

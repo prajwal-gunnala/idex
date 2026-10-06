@@ -1,0 +1,471 @@
+{
+  "trades": {
+    "OFFR": {
+      "code": "OOD",
+      "label": "Officer of the Day"
+    },
+    "IC": {
+      "code": "i/c",
+      "label": "In-Charge"
+    },
+    "SS": {
+      "code": "S&S",
+      "label": "Stores & Supply Sailor"
+    },
+    "ERSS": {
+      "code": "E/R SS",
+      "label": "Engine Room Senior Sailor"
+    },
+    "ELSS": {
+      "code": "E/L SS",
+      "label": "Electrical Senior Sailor"
+    },
+    "COMM": {
+      "code": "COMM",
+      "label": "Communicator"
+    },
+    "ME": {
+      "code": "ME",
+      "label": "ME"
+    },
+    "P": {
+      "code": "P",
+      "label": "P"
+    },
+    "QARP": {
+      "code": "QA/RP",
+      "label": "QA/RP"
+    },
+    "JRNVK": {
+      "code": "Jr Nvk",
+      "label": "Junior Navik"
+    },
+    "SAILOR": {
+      "code": "Sailor",
+      "label": "Sailor (any)"
+    }
+  },
+  "unverifiedTrades": [
+    "ME",
+    "P",
+    "QA/RP"
+  ],
+  "scenarios": [
+    {
+      "id": "HEP",
+      "scenario": "Ship in Harbour",
+      "name": "Harbour Emergency Party",
+      "abbr": "HEP",
+      "when": "Alongside",
+      "detail": "First response while secured alongside. OOD is the assigning authority."
+    },
+    {
+      "id": "SSEP",
+      "scenario": "Ship at Sea",
+      "name": "Standing Sea Emergency Party",
+      "abbr": "SSEP",
+      "when": "NBCD State II",
+      "detail": "The standing watch party that closes up first at sea. Smaller: no Containment Group, no Support ‘B’."
+    }
+  ],
+  "incidentTypes": [
+    {
+      "id": "FF",
+      "name": "Firefighting",
+      "noun": "fire",
+      "icon": "🧯",
+      "detail": "Fire on board — any compartment."
+    },
+    {
+      "id": "DC",
+      "name": "Damage Control",
+      "noun": "damage",
+      "icon": "🛠️",
+      "detail": "Flooding, hull or structural damage."
+    }
+  ],
+  "ships": [
+    {
+      "id": "opv",
+      "name": "Vigraha",
+      "klass": "OPV",
+      "subtitle": "Offshore Patrol Vessel",
+      "status": "ready",
+      "orgSet": "OPV_PCV",
+      "orgs": [
+        "HEP",
+        "SSEP"
+      ],
+      "compartments": [
+        {
+          "id": "engine-room",
+          "name": "Engine Room"
+        },
+        {
+          "id": "da-compt",
+          "name": "DA Compartment"
+        },
+        {
+          "id": "galley",
+          "name": "Galley"
+        },
+        {
+          "id": "paint-store",
+          "name": "Paint Store"
+        },
+        {
+          "id": "jr-rating-mess",
+          "name": "Junior Rating Mess"
+        },
+        {
+          "id": "asp",
+          "name": "ASP"
+        }
+      ]
+    },
+    {
+      "id": "pcv",
+      "name": "Samudra Paheredar",
+      "klass": "PCV",
+      "subtitle": "Pollution Control Vessel",
+      "status": "shared",
+      "orgSet": "OPV_PCV",
+      "orgs": [
+        "HEP",
+        "SSEP"
+      ],
+      "compartments": [
+        {
+          "id": "engine-room",
+          "name": "Engine Room"
+        },
+        {
+          "id": "da-compt",
+          "name": "DA Compartment"
+        },
+        {
+          "id": "galley",
+          "name": "Galley"
+        },
+        {
+          "id": "paint-store",
+          "name": "Paint Store"
+        },
+        {
+          "id": "jr-rating-mess",
+          "name": "Junior Rating Mess"
+        },
+        {
+          "id": "asp",
+          "name": "ASP"
+        }
+      ]
+    },
+    {
+      "id": "fpv",
+      "name": "FPV",
+      "klass": "FPV",
+      "subtitle": "Fast Patrol Vessel",
+      "status": "pending",
+      "orgSet": null,
+      "orgs": [],
+      "compartments": [
+        {
+          "id": "engine-room",
+          "name": "Engine Room"
+        },
+        {
+          "id": "jr-rating-mess-1",
+          "name": "Junior Rating Mess",
+          "flag": "listed twice on source sheet — confirm Fwd / Aft"
+        },
+        {
+          "id": "wj-compt",
+          "name": "W/J Compartment"
+        },
+        {
+          "id": "jr-rating-mess-2",
+          "name": "Junior Rating Mess",
+          "flag": "listed twice on source sheet — confirm Fwd / Aft"
+        },
+        {
+          "id": "paint-store",
+          "name": "Paint Store"
+        },
+        {
+          "id": "galley",
+          "name": "Galley"
+        }
+      ]
+    },
+    {
+      "id": "ib",
+      "name": "Interceptor Boat",
+      "klass": "IB",
+      "subtitle": "Interceptor Boat",
+      "status": "pending",
+      "orgSet": null,
+      "orgs": [],
+      "compartments": [
+        {
+          "id": "engine-room",
+          "name": "Engine Room"
+        },
+        {
+          "id": "jr-sailor-rating-mess",
+          "name": "Jr. Sailor Rating Mess"
+        }
+      ]
+    }
+  ],
+  "statusMeta": {
+    "ready": {
+      "text": "HEP · SSEP defined",
+      "tone": "ok"
+    },
+    "shared": {
+      "text": "Shares the OPV organisation sheets",
+      "tone": "warn"
+    },
+    "pending": {
+      "text": "Organisation sheets not yet supplied",
+      "tone": "off"
+    }
+  },
+  "plans": {
+    "OPV_PCV::HEP": {
+      "id": "OPV_PCV::HEP",
+      "head": {
+        "title": "OOD",
+        "spec": "Officer of the Day",
+        "slots": [
+          {
+            "trade": "OFFR"
+          }
+        ]
+      },
+      "groups": [
+        {
+          "id": "main",
+          "title": "Main Group",
+          "spec": "In-Charge",
+          "slots": [
+            {
+              "trade": "IC"
+            }
+          ],
+          "parties": [
+            {
+              "id": "attack",
+              "title": "Attack Party / Search Party",
+              "spec": "02 Jr. Nvks",
+              "mandatory": true,
+              "breakdown": "ME – 01, P – 01",
+              "slots": [
+                {
+                  "trade": "ME"
+                },
+                {
+                  "trade": "P"
+                }
+              ]
+            },
+            {
+              "id": "attackba",
+              "title": "Attack 'BA' / Repair Party",
+              "spec": "02 Jr Nvks",
+              "mandatory": true,
+              "breakdown": "QA/RP – 02",
+              "slots": [
+                {
+                  "trade": "QARP"
+                },
+                {
+                  "trade": "QARP"
+                }
+              ]
+            },
+            {
+              "id": "bacontroller",
+              "title": "BA Controller",
+              "spec": "01 Sailor",
+              "breakdown": "",
+              "handwritten": true,
+              "slots": [
+                {
+                  "trade": "SAILOR"
+                }
+              ]
+            },
+            {
+              "id": "supporta",
+              "title": "Support 'A' / Pumping & De-Flooding Party",
+              "spec": "03 Jr Nvks",
+              "breakdown": "ME – 01, QA/RP – 02",
+              "slots": [
+                {
+                  "trade": "ME"
+                },
+                {
+                  "trade": "QARP"
+                },
+                {
+                  "trade": "QARP"
+                }
+              ]
+            },
+            {
+              "id": "supportb",
+              "title": "Support 'B' / Shoring Party",
+              "spec": "03 Jr Nvks",
+              "breakdown": "",
+              "slots": [
+                {
+                  "trade": "JRNVK"
+                },
+                {
+                  "trade": "JRNVK"
+                },
+                {
+                  "trade": "JRNVK"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "containment",
+          "title": "Containment Group",
+          "spec": "02 S&S Sailors",
+          "slots": [
+            {
+              "trade": "SS"
+            },
+            {
+              "trade": "SS"
+            }
+          ],
+          "parties": []
+        },
+        {
+          "id": "specialist",
+          "title": "Specialist Group",
+          "spec": "E/R SS · E/L SS · Communicator",
+          "slots": [
+            {
+              "trade": "ERSS"
+            },
+            {
+              "trade": "ELSS"
+            },
+            {
+              "trade": "COMM"
+            }
+          ],
+          "parties": []
+        }
+      ],
+      "notes": [
+        "Attack Party and Attack 'BA' are to regroup and provide assistance to Support 'A'."
+      ]
+    },
+    "OPV_PCV::SSEP": {
+      "id": "OPV_PCV::SSEP",
+      "head": {
+        "title": "SSEP",
+        "spec": "Standing Sea Emergency Party",
+        "slots": []
+      },
+      "groups": [
+        {
+          "id": "main",
+          "title": "Main Group",
+          "spec": "In-Charge",
+          "slots": [
+            {
+              "trade": "IC"
+            }
+          ],
+          "parties": [
+            {
+              "id": "attack",
+              "title": "Attack Party / Search Party",
+              "spec": "02 Jn Nvks",
+              "mandatory": true,
+              "breakdown": "ME – 01, P – 01",
+              "slots": [
+                {
+                  "trade": "ME"
+                },
+                {
+                  "trade": "P"
+                }
+              ]
+            },
+            {
+              "id": "attackba",
+              "title": "Attack 'BA' / Repair Party",
+              "spec": "02 Jn Nvks",
+              "mandatory": true,
+              "breakdown": "",
+              "slots": [
+                {
+                  "trade": "JRNVK"
+                },
+                {
+                  "trade": "JRNVK"
+                }
+              ]
+            },
+            {
+              "id": "bacontroller",
+              "title": "BA Controller",
+              "spec": "01 Nvk",
+              "breakdown": "",
+              "slots": [
+                {
+                  "trade": "JRNVK"
+                }
+              ]
+            },
+            {
+              "id": "supporta",
+              "title": "Support 'A' / Pumping & De-Flooding Party",
+              "spec": "03 Jn Nvks",
+              "breakdown": "ME – 01, QA/RP – 02",
+              "slots": [
+                {
+                  "trade": "ME"
+                },
+                {
+                  "trade": "QARP"
+                },
+                {
+                  "trade": "QARP"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "specialist",
+          "title": "Specialist Group",
+          "spec": "E/R Senior Sailor · E/L Senior Sailor",
+          "slots": [
+            {
+              "trade": "ERSS"
+            },
+            {
+              "trade": "ELSS"
+            }
+          ],
+          "parties": []
+        }
+      ],
+      "notes": [
+        "Attack Party is to provide assistance to Support 'A'.",
+        "If the SSEP is unable to cope with a fire — through lack of personnel or shortage of material resources — it is important that the Executive Officer elevates NBCD State II to State I Condition 'Z', followed by Emergency Stations, in good time. This gets the right people to the right place quickly and brings the ship's DC Parties to State I."
+      ]
+    }
+  }
+}
