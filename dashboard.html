@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard — Emergency Party Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="assets/icg-logo.png">
+</head>
+<body class="dash-body">
+
+<header class="app-header">
+  <div class="wrap wrap-wide header-inner">
+    <img src="assets/icg-logo.png" alt="भारतीय तटरक्षक — Indian Coast Guard" class="brand-logo">
+    <span class="header-divider" aria-hidden="true"></span>
+    <div class="header-title">
+      <span class="header-app">Emergency Party Board</span>
+      <span class="header-app-sub" id="dash-sub">Dashboard</span>
+    </div>
+    <div class="header-actions no-print">
+      <span id="clock" class="clock"></span>
+      <span class="live-dot" id="live-dot" title="Live"></span>
+      <span class="user-chip" id="user-chip"></span>
+      <button class="plan-btn" id="btn-plan" type="button" title="All scenarios — reference trees">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="2" width="6" height="5" rx="1"/><rect x="2" y="17" width="6" height="5" rx="1"/><rect x="16" y="17" width="6" height="5" rx="1"/>
+          <path d="M12 7v5M5 17v-5h14v5"/></svg>
+        <span>Plan</span>
+      </button>
+      <button class="hdr-btn" id="btn-logout" type="button">Sign out</button>
+    </div>
+  </div>
+</header>
+
+<div class="dash">
+  <nav class="side-nav no-print" id="side-nav" aria-label="Dashboard sections"></nav>
+  <main class="dash-main" id="dash-main"><div class="empty-state">Loading&hellip;</div></main>
+</div>
+
+<footer class="site-footer no-print">
+  <div class="wrap wrap-wide footer-inner">
+    <span>Emergency Party Board &middot; HEP &middot; SSEP &middot; Firefighting &amp; Damage Control</span>
+    <span>Data is held on this ship's training server.</span>
+  </div>
+</footer>
+
+<div class="toast hidden" id="toast"></div>
+<script src="js/server-defaults.js"></script>
+<script src="js/server-app.js"></script>
+<script src="js/demo-sessions.js"></script>
+<script src="js/local-server.js"></script>
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
